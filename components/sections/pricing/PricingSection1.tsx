@@ -1,0 +1,249 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { CircleCheck, Gem } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+interface PricingCardProps {
+  name: string;
+  price: number;
+  description: string;
+  features: string[];
+  link: string;
+  highlighted?: boolean;
+}
+
+const pricingTiers: PricingCardProps[] = [
+  {
+    name: "Starter",
+    price: 0,
+    description: " Perfect for beginners, small teams and indiehackers.",
+    features: ["No credit card required", "Up to 1 user", "1 project"],
+    link: "#",
+  },
+  {
+    name: "Pro",
+    price: 39,
+    description:
+      "Perfect for small teams and growing businesses with a small support team.",
+    features: [
+      "Everything in Starter",
+      "Up to 5 user",
+      "5 project",
+      "24/7 Support",
+    ],
+    link: "#",
+    highlighted: true,
+  },
+  {
+    name: "Enterprise",
+    price: 299,
+    description: "Perfect for big companies and organizations with big demand.",
+    features: [
+      "Everything in Pro",
+      "Unlimited users",
+      "Unlimited project",
+      "Primary Support",
+      "Custom features",
+    ],
+    link: "#",
+  },
+];
+
+const containerVariants = {
+  visible: {
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.5,
+    },
+  },
+  hidden: {
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const childrenVariants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+    },
+  },
+  hidden: {
+    opacity: 0,
+    y: -10,
+    filter: "blur(5px)",
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const PricingCard = ({
+  name,
+  price,
+  description,
+  features,
+  link,
+  highlighted = false,
+}: PricingCardProps): JSX.Element => {
+  const { theme } = useTheme();
+  return (
+    <motion.div
+      className={cn(
+        "relative bg-background h-full py-8 px-6 rounded-3xl border border-border flex flex-col dark:[box-shadow:0px_-20px_80px_-100px_#fff_inset]",
+        {
+          "outline-4 outline outline-primary bg-gradient-to-b from-background to-foreground/[.06]":
+            highlighted,
+        }
+      )}
+      style={{
+        backgroundImage:
+          highlighted && theme === "dark"
+            ? "radial-gradient(200px circle at 100% 100%, hsl(var(--primary)) -100%, transparent 100%),radial-gradient(200px circle at 0% 0%, hsl(var(--primary)) -100%, transparent 100%)"
+            : "",
+      }}
+      variants={{
+        visible: {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+        },
+        hidden: {
+          opacity: 0,
+          y: -10,
+          filter: "blur(5px)",
+        },
+      }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
+      {highlighted && (
+        <span className="font-semibold absolute left-1/2 -translate-x-1/2 -top-5 w-fit bg-background px-4 py-1 border-2 border-primary rounded-full [box-shadow:-0px_-20px_80px_-90px_#fff_inset]">
+          Popular
+        </span>
+      )}
+      <div className="grid grid-flow-row gap-y-2">
+        <h3 className="text-lg lg:text-2xl font-semibold">{name}</h3>
+      </div>
+      <div className="grid grid-flow-row items-center justify-start mt-4 gap-y-2">
+        <h4 className="text-4xl font-bold">
+          <span className="text-primary">${price} </span>
+          <span className="text-xl text-muted-foreground font-normal">
+            /month
+          </span>
+        </h4>
+        <p className="text-sm text-muted-foreground">{description}</p>
+      </div>
+      <div className="w-full flex py-8 items-center justify-center">
+        <span className="min-w-full h-[0.85px] lg:h-[0.5px] bg-muted-foreground [mask:radial-gradient(60%_100%_at_50%_50%,hsl(var(--foreground))_-30%,transparent_100%)]"></span>
+      </div>
+      <div className="flex flex-grow h-full flex-col justify-start items-start gap-y-2">
+        {features.map((feature, index) => (
+          <div
+            className="grid grid-flow-col gap-x-2 items-center justify-center"
+            key={index}
+          >
+            <CircleCheck className="text-muted-foreground size-5" />
+            <p className="text-base text-muted-foreground">{feature}</p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-8 flex items-center justify-center">
+        <Link href={link} className="w-full">
+          <Button
+            size={"lg"}
+            variant="outline"
+            className={cn(
+              "w-full relative group overflow-hidden flex justify-center [box-shadow:10px_-20px_80px_-90px_#fff_inset]"
+            )}
+          >
+            {highlighted ? (
+              <>
+                <span className="group-hover:-translate-x-64 text-center transition duration-500 group">
+                  Get Started{" "}
+                </span>
+                <div className="translate-x-full group-hover:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-foreground z-20">
+                  Start your free trial
+                </div>
+              </>
+            ) : (
+              <>Get Started</>
+            )}
+          </Button>
+        </Link>
+      </div>
+    </motion.div>
+  );
+};
+
+const PricingSection = (): JSX.Element => {
+  return (
+    <motion.section
+      className="w-full min-h-screen bg-background relative"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div
+        className="absolute h-full w-full bg-[radial-gradient(hsl(var(--primary))_0.3px,transparent_1px)] dark:bg-[radial-gradient(hsl(var(--primary))_1px,transparent_1px)] [background-size:10px_10px] [mask-image:radial-gradient(ellipse_100%_50%_at_50%_50%,#000_30%,transparent_100%)] lg:[mask-image:radial-gradient(ellipse_30%_50%_at_50%_50%,#000_30%,transparent_100%)]"
+        variants={{
+          visible: {
+            opacity: 1,
+            filter: "blur(0px)",
+          },
+          hidden: {
+            opacity: 0,
+            filter: "blur(5px)",
+          },
+        }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+      />
+      <div className="w-full max-w-7xl mx-auto py-24 px-4 xl:px-12 relative">
+        <div className="max-w-3xl mx-auto grid items-center justify-center grid-flow-row">
+          <motion.span
+            className="w-min mx-auto p-3 bg-background border border-border outline outline-3 dark:outline-2 outline-offset-1 outline-foreground/10 dark:outline-accent rounded-md [box-shadow:-10px_-30px_80px_-90px_#000_inset] dark:[box-shadow:-10px_-30px_80px_-90px_#fff_inset]"
+            variants={childrenVariants}
+          >
+            <Gem className="size-6 text-muted-foreground" />
+          </motion.span>
+          <motion.h3
+            className="mt-8 text-2xl lg:text-4xl font-semibold text-center"
+            variants={childrenVariants}
+          >
+            Start building today
+          </motion.h3>
+          <motion.p
+            className="text-muted-foreground text-center mt-4 max-w-sm px-8 lg:px-2 font-medium"
+            variants={childrenVariants}
+          >
+            Building SaaS has never been easier. Choose the right plan for you
+            and start free trial right now.
+          </motion.p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
+          {pricingTiers.map((tier) => (
+            <PricingCard
+              key={tier.name}
+              name={tier.name}
+              price={tier.price}
+              description={tier.description}
+              features={tier.features}
+              link={tier.link}
+              highlighted={tier.highlighted}
+            />
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  );
+};
+
+export default PricingSection;

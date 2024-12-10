@@ -1,0 +1,164 @@
+"use client";
+import React, { useState } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+const faqs = [
+  {
+    question: "What can I use it for?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut metus ligula. Proin vehicula velit quis justo facilisis, in facilisis dolor interdum.",
+  },
+  {
+    question: "What sections are available?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut metus ligula. Proin vehicula velit quis justo facilisis, in facilisis dolor interdum.",
+  },
+  {
+    question: "Do you accept refunds?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut metus ligula. Proin vehicula velit quis justo facilisis, in facilisis dolor interdum.",
+  },
+  {
+    question: "Can I cancel my subscription?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut metus ligula. Proin vehicula velit quis justo facilisis, in facilisis dolor interdum.",
+  },
+];
+
+const FAQItem = ({
+  question,
+  answer,
+  isOpen,
+  toggleOpen,
+}: {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  toggleOpen: () => void;
+}) => {
+  return (
+    <div className="border-b border-gray-700">
+      <button
+        className="w-full py-6 flex justify-between items-center text-left"
+        onClick={toggleOpen}
+      >
+        <span className="text-gray-900 dark:text-gray-200 font-semibold">
+          {question}
+        </span>
+        <ChevronDown
+          className={`text-gray-500 dark:text-gray-400 transition-transform duration-300 ${
+            isOpen ? "transform rotate-180" : ""
+          }`}
+        />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <p className="pb-6 m-0 text-left text-muted-foreground dark:text-gray-400">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      delayChildren: 0.4,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, filter: "blur(3px)" },
+  visible: {
+    filter: "blur(0px)",
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
+const Faq1 = (): JSX.Element => {
+  const [openIndex, setOpenIndex] = useState(-1);
+  const controls = useAnimation();
+  const divRef = useRef(null);
+  const IsInView = useInView(divRef);
+
+  useEffect(() => {
+    if (IsInView) {
+      controls.start("visible");
+    }
+  }, [IsInView, controls]);
+
+  return (
+    <motion.section
+      className="w-full max-w-7xl mx-auto py-24 px-8"
+      ref={divRef}
+      variants={containerVariants}
+      initial="hidden"
+      animate={controls}
+    >
+      <div className="w-full max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid gap-y-8"
+        >
+          <div className="grid gap-y-4">
+            <motion.h1
+              className="text-5xl font-bold text-center bg-gradient-to-b from-foreground to-muted-foreground dark:from-white dark:to-muted bg-clip-text text-transparent tracking-tight pb-2 mb-0"
+              variants={itemVariants}
+            >
+              Frequently asked questions
+            </motion.h1>
+            <motion.p
+              className="text-base text-muted-foreground text-center max-w-lg mx-auto grid grid-flow-row m-0"
+              variants={itemVariants}
+            >
+              We are here to help you with any questions you may have. If you
+              don&apos;t find what you need, please contact us at
+              <span className="text-primary underline">support@acme.com</span>
+            </motion.p>
+          </div>
+          <div>
+            {faqs.map((faq, index) => (
+              <motion.div variants={itemVariants} key={index}>
+                <FAQItem
+                  key={index}
+                  question={faq.question}
+                  answer={faq.answer}
+                  isOpen={index === openIndex}
+                  toggleOpen={() =>
+                    setOpenIndex(index === openIndex ? -1 : index)
+                  }
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+};
+
+export default Faq1;
