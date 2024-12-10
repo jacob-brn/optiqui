@@ -3,7 +3,7 @@
 Optiq UI is a building blocks library for speeding up development time and making your landing page look polished.
 
 <p align="center">
-  <img src="./public/assets/android-chrome-512x512.png" alt="Logo of Optiq UI"/>
+  <img src="./public/assets/android-chrome-192x192.png" alt="Logo of Optiq UI"/>
 </p>
 
 <br/>
