@@ -11,6 +11,7 @@ import Link from "next/link";
 import { FaBluesky, FaGithub, FaXTwitter } from "react-icons/fa6";
 import Footer from "@/components/sections/footer/Footer1";
 import TestimonialsSection from "@/components/sections/testimonials/TestimonialsSection1";
+import { buttonVariants } from "@/components/ui/button";
 
 type SectionKey =
   | "hero"
@@ -78,7 +79,21 @@ export default function DemoPage({
     );
   }
 
-  const Component = sections[feature][section];
+  const Component = sections[feature]?.[section];
+
+  if (!Component) {
+    return (
+      <div className="min-h-[87vh] px-2 sm:py-28 py-36 flex flex-col gap-4 items-center">
+        <div className="text-center flex flex-col items-center justify-center w-fit gap-2">
+          <h2 className="text-7xl font-bold pr-1">Something went wrong</h2>
+        </div>
+        <Link href="/" className={buttonVariants({})}>
+          Back to homepage
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen relative">
       <Component />
