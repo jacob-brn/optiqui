@@ -2,8 +2,6 @@ import React from "react";
 import Script from "next/script";
 
 const GoogleAnalytics = () => {
-  console.log(process.env.NEXT_PUBLIC_MEASUREMENT_ID);
-
   return (
     <>
       <Script
