@@ -1,14 +1,8 @@
 "use client";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  animate,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
 import Link from "next/link";
 import Particles from "./animated/Particles";
 import { page_routes } from "@/lib/routes-config";
@@ -18,34 +12,20 @@ import TextAurora from "../TextAurora";
 import { ArrowDownRight } from "lucide-react";
 
 const HeroSection = () => {
-  const colors = ["#e11d48", "#0c0a09"];
-  const color = useMotionValue(colors[0]);
-  const bgImage = useMotionTemplate`radial-gradient(80% 150% at 50% 120%, ${color}, 30%, black 70%)`;
-
-  useEffect(() => {
-    animate(color, colors, {
-      ease: "easeInOut",
-      duration: 8,
-      repeat: Infinity,
-      repeatType: "mirror",
-      delay: 0,
-    });
-  }, []);
-
   return (
-    <MaxWidthWrapper className="pt-20 h-[calc(100vh-3.5rem)] bg-background w-full">
+    <MaxWidthWrapper className="max-w-none py-40 bg-background w-full relative">
       <Particles
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none [mask:radial-gradient(50%_100%_at_50%_50%,hsl(var(--foreground))_50%,transparent_100%)]"
         quantity={300}
         staticity={100}
       />
       <div className="max-w-7xl mx-auto flex items-center justify-center flex-col z-10 mt-0 lg:mt-24">
-        <h1 className="text-5xl lg:text-6xl 2xl:text-7xl font-semibold text-center px-12 text-balance !leading-[1.16]">
-          Make your <TextAurora text="landing page" /> look good in minutes.
+        <h1 className="text-5xl lg:text-6xl 2xl:text-7xl font-semibold text-center px-4 text-balance !leading-[1.16]">
+          Make your <TextAurora text="landing page" /> look good in minutes
         </h1>
-        <p className="max-w-prose text-balance text-center text-muted-foreground text-md px-16 mt-6 font-medium">
+        <p className="max-w-prose text-balance text-center text-muted-foreground text-md px-4 mt-6 font-medium">
           Optiq UI is a building blocks library for speeding up development time
-          and making your landing page look polished.
+          and making your landing page look polished
         </p>
         <Link href={`docs/${page_routes[0].href}`}>
           <motion.div
@@ -92,7 +72,6 @@ const HeroSection = () => {
                 }}
               />
             </motion.div>
-            {/* Button content */}
             <motion.button
               className={cn(
                 buttonVariants({ size: "lg" }),

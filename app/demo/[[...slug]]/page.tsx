@@ -12,6 +12,7 @@ import { FaBluesky, FaGithub, FaXTwitter } from "react-icons/fa6";
 import Footer from "@/components/sections/footer/Footer1";
 import TestimonialsSection from "@/components/sections/testimonials/TestimonialsSection1";
 import { buttonVariants } from "@/components/ui/button";
+import Image from "next/image";
 
 type SectionKey =
   | "hero"

@@ -8,12 +8,12 @@ import Faq1 from "../sections/faq/Faq1";
 
 const DemosSection = (): JSX.Element => {
   return (
-    <MaxWidthWrapper className="min-h-screen w-full max-w-7xl mx-auto flex flex-col items-center px-12 py-20 gap-y-12">
+    <MaxWidthWrapper className="min-h-screen w-full max-w-7xl mx-auto flex flex-col items-center px-4 py-20 gap-y-12">
       <div className="py-12">
-        <h3 className="text-6xl font-bold text-center bg-gradient-to-b from-foreground to-muted-foreground dark:from-white dark:to-muted bg-clip-text text-transparent tracking-tight pb-2 mb-0">
+        <h3 className="text-4xl lg:text-6xl font-bold text-center bg-gradient-to-b from-foreground to-muted-foreground dark:from-white dark:to-muted bg-clip-text text-transparent tracking-tight pb-2 mb-0">
           Sections Demos
         </h3>
-        <p className="text-muted-foreground text-base max-w-md mt-4 text-center text-balance mx-auto">
+        <p className="text-muted-foreground text-base max-w-md mt-2 text-center text-balance mx-auto px-2">
           Here are some demos of our sections that you can copy and use for your
           landing page.
         </p>
@@ -21,7 +21,7 @@ const DemosSection = (): JSX.Element => {
       <div className="max-w-5xl mx-auto w-full border border-border py-20 rounded-md [box-shadow:0px_-20px_90px_-100px_hsl(var(--foreground))_inset]">
         <Header1 />
       </div>
-      <div className="max-w-5xl mx-auto w-full border border-border overflow-hidden pt-20 rounded-md [box-shadow:0px_-20px_90px_-100px_hsl(var(--foreground))_inset]">
+      <div className="max-w-5xl mx-auto w-full border border-border overflow-hidden rounded-md [box-shadow:0px_-20px_90px_-100px_hsl(var(--foreground))_inset]">
         <HeroSection />
       </div>
       <div className="max-w-5xl mx-auto w-full border border-border py-20 rounded-md [box-shadow:0px_-20px_90px_-100px_hsl(var(--foreground))_inset]">
