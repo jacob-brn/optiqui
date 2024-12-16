@@ -10,6 +10,7 @@ import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaReact } from "react-icons/fa6";
 import TextAurora from "../TextAurora";
 import { ArrowDownRight } from "lucide-react";
+import SlidingBadge from "../SlidingBadge";
 
 const HeroSection = () => {
   return (
@@ -19,8 +20,9 @@ const HeroSection = () => {
         quantity={300}
         staticity={100}
       />
-      <div className="max-w-7xl mx-auto flex items-center justify-center flex-col z-10 mt-0 lg:mt-24">
-        <h1 className="text-5xl lg:text-6xl 2xl:text-7xl font-semibold text-center px-4 text-balance !leading-[1.16]">
+      <div className="max-w-7xl mx-auto flex items-center justify-center flex-col z-10 mt-0 lg:mt-12">
+        <SlidingBadge />
+        <h1 className="text-5xl lg:text-6xl 2xl:text-7xl font-semibold text-center px-4 text-balance !leading-[1.16] mt-4">
           Make your <TextAurora text="landing page" /> look good in minutes
         </h1>
         <p className="max-w-prose text-balance text-center text-muted-foreground text-md px-4 mt-6 font-medium">

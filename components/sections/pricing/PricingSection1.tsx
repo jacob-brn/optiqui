@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { CircleCheck, Gem } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
+
 interface PricingCardProps {
   name: string;
   price: number;
@@ -95,22 +95,15 @@ const PricingCard = ({
   link,
   highlighted = false,
 }: PricingCardProps): JSX.Element => {
-  const { theme } = useTheme();
   return (
     <motion.div
       className={cn(
         "relative bg-background h-full py-8 px-6 rounded-3xl border border-border flex flex-col dark:[box-shadow:0px_-20px_80px_-100px_#fff_inset]",
         {
-          "outline-4 outline outline-primary bg-gradient-to-b from-background to-foreground/[.06]":
+          "outline-4 outline outline-primary bg-gradient-to-b from-background to-foreground/[.06] dark:bg-[radial-gradient(200px_circle_at_100%_100%,_hsl(var(--primary))_-100%,_transparent_100%),_radial-gradient(200px_circle_at_0%_0%,_hsl(var(--primary))_-100%,_transparent_100%)]":
             highlighted,
         }
       )}
-      style={{
-        backgroundImage:
-          highlighted && theme === "dark"
-            ? "radial-gradient(200px circle at 100% 100%, hsl(var(--primary)) -100%, transparent 100%),radial-gradient(200px circle at 0% 0%, hsl(var(--primary)) -100%, transparent 100%)"
-            : "",
-      }}
       variants={{
         visible: {
           opacity: 1,

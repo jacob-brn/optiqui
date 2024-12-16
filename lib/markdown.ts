@@ -25,6 +25,7 @@ import PricingSection from "@/components/sections/pricing/PricingSection1";
 import HeroSection from "@/components/sections/hero/HeroSection1";
 import Faq1 from "@/components/sections/faq/Faq1";
 import Footer from "@/components/sections/footer/Footer1";
+import SlidingBadge from "@/components/SlidingBadge";
 
 // add custom components
 const components = {
@@ -47,6 +48,7 @@ const components = {
   HeroSection,
   Footer,
   Faq1,
+  SlidingBadge,
 };
 
 // can be used for other pages like blogs, Guides etc

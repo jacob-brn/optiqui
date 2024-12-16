@@ -59,6 +59,12 @@ export const ROUTES: EachRoute[] = [
     noLink: true,
     items: [{ title: "Footer 1", href: "/1" }],
   },
+  {
+    title: "Components",
+    href: "/components",
+    noLink: true,
+    items: [{ title: "Sliding Badge", href: "/sliding_badge" }],
+  },
 ];
 
 type Page = { title: string; href: string };
