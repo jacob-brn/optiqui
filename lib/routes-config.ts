@@ -5,6 +5,7 @@ export type EachRoute = {
   href: string;
   noLink?: true;
   items?: EachRoute[];
+  badges?: string[];
 };
 
 export const ROUTES: EachRoute[] = [
@@ -63,7 +64,9 @@ export const ROUTES: EachRoute[] = [
     title: "Components",
     href: "/components",
     noLink: true,
-    items: [{ title: "Sliding Badge", href: "/sliding_badge" }],
+    items: [
+      { title: "Sliding Badge", href: "/sliding_badge", badges: ["New"] },
+    ],
   },
 ];
 

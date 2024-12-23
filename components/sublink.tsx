@@ -11,6 +11,7 @@ import { Button } from "./ui/button";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { Badge } from "./ui/badge";
 
 export default function SubLink({
   title,
@@ -18,6 +19,7 @@ export default function SubLink({
   items,
   noLink,
   level,
+  badges,
   isSheet,
 }: EachRoute & { level: number; isSheet: boolean }) {
   const path = usePathname();
@@ -52,6 +54,11 @@ export default function SubLink({
       >
         {path === href && <div className="w-[2px] h-5 flex bg-primary ml-2" />}
         {titleOrLink}
+        {badges?.map((badge) => (
+          <div className="z-10 ml-1 rounded-md bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none  no-underline group-hover:no-underline">
+            {badge}
+          </div>
+        ))}
       </div>
     );
   }
