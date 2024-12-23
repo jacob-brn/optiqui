@@ -54,8 +54,11 @@ export default function SubLink({
       >
         {path === href && <div className="w-[2px] h-5 flex bg-primary ml-2" />}
         {titleOrLink}
-        {badges?.map((badge) => (
-          <div className="z-10 ml-1 rounded-md bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none  no-underline group-hover:no-underline">
+        {badges?.map((badge, index) => (
+          <div
+            className="z-10 ml-1 rounded-md bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none  no-underline group-hover:no-underline"
+            key={index}
+          >
             {badge}
           </div>
         ))}
