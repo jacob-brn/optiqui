@@ -128,3 +128,33 @@ blockquote > p::before {
 .highlight-comp > code {
   background-color: transparent !important;
 }
+
+table {
+  @apply table-auto w-full border-collapse border border-border;
+}
+
+/* Table header styles */
+/* Table header styles */
+table thead th {
+  @apply px-4 py-2 border text-left font-extrabold text-gray-200 text-base;
+}
+/* Table body styles */
+table tbody td {
+  @apply !px-4 !py-1.5 border border-border font-semibold !align-middle;
+}
+
+/* Add padding-right to the last column heading */
+table thead th:last-child {
+  @apply pr-6; /* Add desired padding-right, e.g., 1.5rem */
+}
+
+/* Optional: Add specific padding for the first column */
+table tbody td:first-child,
+table thead th:first-child {
+  @apply px-4 py-2; /* Ensure uniform padding */
+}
+
+/* Wrap tables in a scrollable container */
+.table-wrapper {
+  @apply overflow-x-auto;
+}
