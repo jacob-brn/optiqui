@@ -66,6 +66,11 @@ export const ROUTES: EachRoute[] = [
     noLink: true,
     items: [
       { title: "Sliding Badge", href: "/sliding_badge", badges: ["New"] },
+      {
+        title: "Cubic Text Animation",
+        href: "/cubic_text_animation",
+        badges: ["New"],
+      },
     ],
   },
 ];

@@ -26,6 +26,7 @@ import HeroSection from "@/components/sections/hero/HeroSection1";
 import Faq1 from "@/components/sections/faq/Faq1";
 import Footer from "@/components/sections/footer/Footer1";
 import SlidingBadge from "@/components/SlidingBadge";
+import CubicTextAnimation from "@/components/CubicTextAnimation";
 
 // add custom components
 const components = {
@@ -49,6 +50,7 @@ const components = {
   Footer,
   Faq1,
   SlidingBadge,
+  CubicTextAnimation,
 };
 
 // can be used for other pages like blogs, Guides etc

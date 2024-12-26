@@ -1,0 +1,186 @@
+---
+title: Cubic Text Animation
+description: Text animation with animated letters looking like rubik's cube.
+---
+
+{" "}
+
+<Tabs defaultValue="example" className="pt-5 pb-1">
+  <TabsList>
+    <TabsTrigger value="example">Example</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="example">
+        <ComponentPreview className="my-5 grid items-center justify-center py-24">
+            <CubicTextAnimation text="✨Cool Text Animation✨" animateOnHover className="cursor-pointer text-3xl lg:text-5xl font-semibold text-center text-balance"/>
+        </ComponentPreview>
+    </TabsContent>
+  <TabsContent value="code">
+    ```typescript
+    // DemoPage.tsx
+    import CubicTextAnimation from "@/components/CubicTextAnimation";
+
+    export default function DemoPage() {
+        return (
+            <>
+                <CubicTextAnimation
+                    text="✨Cool Text Animation✨"
+                    animateOnHover
+                    className="cursor-pointer text-5xl font-semibold "
+                />
+            </>
+          );
+    }
+    ```
+    </TabsContent>
+
+</Tabs>
+
+## Installation Steps
+
+1. **Install Dependencies**:
+   Install the required dependencies using npm:
+
+   ```bash
+   npm install framer-motion
+   ```
+
+2. **Copy this Component**
+
+```typescript:CubicTextAnimation.tsx showLineNumbers
+"use client";
+import { cn } from "@/lib/utils";
+import {
+  motion,
+  useAnimationControls,
+  useMotionValue,
+  delay,
+} from "framer-motion";
+import { useEffect, useRef } from "react";
+
+const topLetterVariants = {
+  initial: {
+    opacity: 0,
+    filter: "blur(4px)",
+    transform: "rotateX(-90deg) translateY(-50%)",
+  },
+  animate: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transform: "rotateX(0deg) translateY(0%)",
+  },
+};
+
+const bottomLetterVariants = {
+  initial: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transform: "rotateX(0deg) translateY(0%)",
+  },
+  animate: {
+    opacity: 0,
+    filter: "blur(4px)",
+    transform: "rotateX(90deg) translateY(50%)",
+  },
+};
+
+const CubicTextAnimation = ({
+  text,
+  animateOnHover = false,
+  className,
+}: {
+  text: string;
+  animateOnHover?: boolean;
+  className?: string;
+}) => {
+  const ref = useRef(null);
+  const hasAnimated = useRef(false);
+  const controls = useAnimationControls();
+  const isAnimating = useMotionValue(false);
+
+  useEffect(() => {
+    if (!animateOnHover) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            controls.start("animate");
+            hasAnimated.current = true;
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return () => observer.disconnect();
+    }
+  }, [controls, animateOnHover]);
+
+  const handleMouseEnter = () => {
+    if (animateOnHover && !isAnimating.get()) {
+      isAnimating.set(true);
+      controls.start("animate");
+    } else {
+      isAnimating.set(true);
+      controls.start("initial");
+      delay(() => {
+        isAnimating.set(false);
+      }, text.length * 50);
+    }
+  };
+
+  return (
+    <div
+      className={cn("inline-block perspective-[1000px]", className)}
+      onMouseEnter={handleMouseEnter}
+      ref={ref}
+    >
+      {text.split("").map((char, i) => (
+        <motion.div
+          key={i}
+          className="relative inline-block"
+          style={{
+            transformStyle: "preserve-3d",
+            transition: `transform ${0.5}s ${i * 0.05}s`,
+          }}
+          animate={controls}
+          initial="initial"
+        >
+          <motion.span
+            key={`front-${i}`}
+            className="inline-block"
+            variants={topLetterVariants}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+          <motion.span
+            key={`back-${i}`}
+            className="absolute top-0 left-0"
+            variants={bottomLetterVariants}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            style={{
+              transformOrigin: "bottom center",
+              backfaceVisibility: "hidden",
+            }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+export default CubicTextAnimation;
+```
+
+## Props
+
+| Prop           | Type    | description                                  |
+| -------------- | ------- | -------------------------------------------- |
+| text           | string  | text to get animated                         |
+| animateOnHover | boolean | enable hover animation (disabled by default) |
+| className      | string  | additional classNames for text               |
