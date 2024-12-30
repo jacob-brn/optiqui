@@ -13,12 +13,16 @@ const TextAurora = ({
   return (
     <span className={cn("relative inline-flex overflow-hidden", className)}>
       {text}
-      <motion.div className="absolute inset-0 pointer-events-none mix-blend-lighten dark:mix-blend-darken">
+      <motion.div
+        className="absolute inset-0 pointer-events-none mix-blend-lighten dark:mix-blend-darken"
+        style={{ isolation: "isolate", WebkitBackfaceVisibility: "visible" }}
+      >
         <motion.div
           className="absolute w-[50vw] h-[50vw] mix-blend-overlay blur-xl bg-[hsl(var(--color-1))] animate-aurora-border repeat-infinite direction-alternate-reverse"
           style={{
             animation:
               "aurora-1 10s 12s infinite alternate, spin 10s 6s infinite alternate",
+            WebkitBackfaceVisibility: "visible",
           }}
         />
         <motion.div
@@ -26,6 +30,7 @@ const TextAurora = ({
           style={{
             animation:
               "aurora-2 10s 12s infinite alternate, spin 10s 8s infinite alternate",
+            WebkitBackfaceVisibility: "visible",
           }}
         />
         <motion.div
@@ -33,6 +38,7 @@ const TextAurora = ({
           style={{
             animation:
               "aurora-3 10s 12s infinite alternate, spin 10s 10s infinite alternate",
+            WebkitBackfaceVisibility: "visible",
           }}
         />
         <motion.div
@@ -40,6 +46,7 @@ const TextAurora = ({
           style={{
             animation:
               "aurora-4 10s 14s infinite alternate, spin 10s 12s infinite alternate",
+            WebkitBackfaceVisibility: "visible",
           }}
         />
         <motion.div
@@ -47,6 +54,7 @@ const TextAurora = ({
           style={{
             animation:
               "aurora-5 10s 12s infinite alternate, spin 10s 14s infinite alternate",
+            WebkitBackfaceVisibility: "visible",
           }}
         />
       </motion.div>
