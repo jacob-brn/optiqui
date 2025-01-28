@@ -22,13 +22,13 @@ const HeroSection = () => {
       />
       <div className="max-w-7xl mx-auto flex items-center justify-center flex-col z-10 mt-0 lg:mt-12">
         <SlidingBadge />
-        <h1 className="text-5xl lg:text-6xl 2xl:text-7xl font-semibold text-center px-4 text-balance !leading-[1.16] mt-4">
+        <h1 className="text-5xl lg:text-6xl 2xl:text-7xl font-medium text-center px-4 text-balance !leading-[1.16] mt-4 tracking-tighter">
           Make your <TextAurora text="landing page" /> look good in minutes
         </h1>
-        <p className="max-w-prose text-balance text-center text-muted-foreground text-md px-4 mt-6 font-medium">
+        <h2 className="max-w-prose text-balance text-center text-muted-foreground text-md px-4 mt-6 font-normal">
           Optiq UI is a building blocks library for speeding up development time
           and making your landing page look polished
-        </p>
+        </h2>
         <Link href={`docs/${page_routes[0].href}`}>
           <motion.div
             className={cn("relative mt-6 overflow-hidden rounded-full")}

@@ -71,6 +71,11 @@ export const ROUTES: EachRoute[] = [
         href: "/cubic_text_animation",
         badges: ["New"],
       },
+      {
+        title: "Hero Media",
+        href: "/hero_media",
+        badges: ["New"],
+      },
     ],
   },
 ];

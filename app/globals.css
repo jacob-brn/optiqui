@@ -142,7 +142,7 @@ table tbody td {
 }
 
 table thead th:last-child {
-  @apply pr-6; 
+  @apply pr-6;
 }
 
 table tbody td:first-child,

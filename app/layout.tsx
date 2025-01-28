@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Raleway } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-const raleway = Raleway({
+const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${raleway.className} antialiased`}>
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider
           defaultTheme="dark"
           attribute="class"
