@@ -12,7 +12,7 @@ description: Text animation with animated letters looking like rubik's cube.
   </TabsList>
   <TabsContent value="example">
         <ComponentPreview className="my-5 grid items-center justify-center py-24">
-            <CubicTextAnimation text="✨Cool Text Animation✨" animateOnHover className="cursor-pointer text-3xl lg:text-5xl font-semibold text-center text-balance"/>
+            <CubicTextAnimation text="✨Cool Text Animation✨" animateOnHover className="cursor-pointer text-xl lg:text-4xl font-semibold text-center"/>
         </ComponentPreview>
     </TabsContent>
   <TabsContent value="code">
@@ -26,7 +26,7 @@ description: Text animation with animated letters looking like rubik's cube.
                 <CubicTextAnimation
                     text="✨Cool Text Animation✨"
                     animateOnHover
-                    className="cursor-pointer text-5xl font-semibold "
+                    className="cursor-pointer text-xl lg:text-4xl font-semibold text-center"
                 />
             </>
           );
@@ -179,8 +179,31 @@ export default CubicTextAnimation;
 
 ## Props
 
-| Prop           | Type    | description                                  |
-| -------------- | ------- | -------------------------------------------- |
-| text           | string  | text to get animated                         |
-| animateOnHover | boolean | enable hover animation (disabled by default) |
-| className      | string  | additional classNames for text               |
+<div className="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Prop</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>text</td>
+        <td>string</td>
+        <td>text to get animated</td>
+      </tr>
+      <tr>
+        <td>animateOnHover</td>
+        <td>boolean</td>
+        <td>enable hover animation (disabled by default)</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>additional classNames for text</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

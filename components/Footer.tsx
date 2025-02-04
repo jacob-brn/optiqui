@@ -61,9 +61,8 @@ const blurLayers = [
 ];
 
 const footerSocials = [
-  { icon: FaXTwitter, href: "https://x.com/jacobdev0/" },
-  { icon: FaBluesky, href: "https://bsky.app/profile/jacobdev.bsky.social" },
-  { icon: FaGithub, href: "https://github.com/jacob01-dev/optiqui" },
+  { icon: FaXTwitter, href: "https://x.com/jacob_brn" },
+  { icon: FaGithub, href: "https://github.com/jacob-brn/optiqui" },
 ];
 
 const footerLinks: FooterLinks = {
@@ -182,8 +181,14 @@ const Footer = (): JSX.Element => {
               Optiq UI
             </span>
           </Link>
-          <p className="mt-4 text-sm text-gray-400 max-w-xs">
-            Make your landing page look good in minutes.
+          <p className="mt-2 text-sm text-gray-400 max-w-xs">
+            Building in public at{" "}
+            <Link
+              href="https://x.com/jacob_brn"
+              className="font-medium text-primary"
+            >
+              @jacob_brn
+            </Link>
           </p>
           <div className="flex space-x-4 mt-6">
             {footerSocials.map((footerSocial, index) => (

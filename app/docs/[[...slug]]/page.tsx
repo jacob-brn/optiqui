@@ -16,7 +16,7 @@ export default async function DocsPage({ params: { slug = [] } }: PageProps) {
 
   if (!res) notFound();
   return (
-    <div className="flex items-start gap-10 mx-auto w-full min-w-0">
+    <div className="flex items-start gap-10 mx-auto w-full min-w-0 xl:border-r border-border">
       <div className="flex-[4.5] pt-10 sm:container">
         <DocsBreadcrumb paths={slug} />
         <Typography>

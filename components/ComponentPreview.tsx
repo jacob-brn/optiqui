@@ -15,7 +15,7 @@ const ComponentPreview = ({
         className
       )}
     >
-      <div className={cn("w-full h-full")}>{children}</div>
+      {children}
     </div>
   );
 };

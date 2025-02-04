@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import { Leftbar } from "@/components/leftbar";
 import { Navbar } from "@/components/navbar";
+import Script from "next/script";
 
 export default function DocsLayout({
   children,

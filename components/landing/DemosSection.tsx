@@ -10,7 +10,7 @@ const DemosSection = (): JSX.Element => {
   return (
     <MaxWidthWrapper className="min-h-screen w-full max-w-7xl mx-auto flex flex-col items-center px-4 py-20 gap-y-12">
       <div className="py-12">
-        <h3 className="text-4xl lg:text-6xl font-bold text-center bg-gradient-to-b from-foreground to-muted-foreground dark:from-white dark:to-muted bg-clip-text text-transparent tracking-tight pb-2 mb-0">
+        <h3 className="text-4xl lg:text-6xl font-bold text-center bg-gradient-to-b from-neutral-400 to-neutral-800 dark:from-neutral-50 dark:to-neutral-600 bg-opacity-50 bg-clip-text text-transparent tracking-tight pb-2 mb-0">
           Sections Demos
         </h3>
         <p className="text-muted-foreground text-base max-w-md mt-2 text-center text-balance mx-auto px-2">

@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[87vh] px-2 sm:py-28 py-36 flex flex-col gap-4 items-center">
-      <div className="text-center flex flex-col items-center justify-center w-fit gap-2">
+    <div className="min-h-screen max-w-7xl w-full mx-auto flex items-center justify-center flex-col">
+      <div className="text-center flex flex-col items-center justify-center w-fit gap-2 pb-2">
         <h2 className="text-7xl font-bold pr-1">404</h2>
         <p className="text-muted-foreground text-md font-medium">
           Page not found {":("}
@@ -24,11 +24,11 @@ export default function NotFound() {
 //   return (
 //     <div className="relative min-h-[100vh] flex items-center justify-center flex-col bg-foreground dark">
 //       <div className="flex flex-col items-center z-10">
-//         <CubicTextAnimation
-//           text="✨Cool Text Animation✨"
-//           animateOnHover
-//           className="cursor-pointer text-5xl font-semibold text-background"
-//         />
+// <CubicTextAnimation
+//   text="✨Cool Text Animation✨"
+//   animateOnHover
+//   className="cursor-pointer text-5xl font-semibold text-background"
+// />
 //         <p className="text-muted-foreground mt-6 text-lg">
 //           Hover over the text above to see magic
 //         </p>

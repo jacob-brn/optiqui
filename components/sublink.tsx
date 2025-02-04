@@ -54,14 +54,20 @@ export default function SubLink({
       >
         {path === href && <div className="w-[2px] h-5 flex bg-primary ml-2" />}
         {titleOrLink}
-        {badges?.map((badge, index) => (
-          <div
-            className="z-10 ml-1 rounded-md bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none  no-underline group-hover:no-underline"
-            key={index}
-          >
-            {badge}
-          </div>
-        ))}
+        <div className="flex gap-1.5">
+          {badges?.map((badge, index) => (
+            <div
+              className={cn(
+                "z-10 rounded-sm bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none  no-underline group-hover:no-underline",
+                badge.toLowerCase() === "pro" && "bg-primary text-background",
+                badge.toLowerCase() === "soon" && "bg-muted text-foreground"
+              )}
+              key={index}
+            >
+              {badge}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

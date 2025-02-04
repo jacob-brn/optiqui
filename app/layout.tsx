@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
@@ -13,11 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-const inter = Inter({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${GeistSans.className} antialiased`}>
         <ThemeProvider
           defaultTheme="dark"
           attribute="class"

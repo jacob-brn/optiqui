@@ -5,30 +5,111 @@ description: Animated Badge with messages sliding from left to right
 
 {" "}
 
-<div className="text-center h-screen">
-  <ComponentPreview className="py-20">
-    <SlidingBadge />
+<Tabs defaultValue="example" className="pt-5 pb-1">
+  <TabsList>
+    <TabsTrigger value="example">Example</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="example">
+<ComponentPreview className="my-5 grid items-center justify-center py-24">
+    <SlidingBadge
+      messages={[
+        {
+          emoji: "❤️",
+          text: (
+            <>
+              Follow me on{" "}
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width={24}
+                height={24}
+                class="ml-1 w-3 h-3"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+              </svg>
+            </>
+          ),
+          link: "https://x.com/jacob_brn",
+        },
+        {
+          emoji: "✨",
+          text: <>Star on Github</>,
+          link: "https://github.com/jacob-brn/optiqui",
+        },
+      ]}
+    />
   </ComponentPreview>
-</div>
+    </TabsContent>
+  <TabsContent value="code">
+    ````typescript
+    // DemoPage.tsx
+
+    import SlidingBadge from "@/components/SlidingBadge";
+
+    export default function DemoPage() {
+      const messages = [
+        {
+          emoji: "❤️",
+          text: (
+            <>
+              Follow me on{" "}
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width={24}
+                height={24}
+                className="ml-1 w-3 h-3"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+              </svg>
+            </>
+          ),
+          link: "https://x.com/jacob_brn",
+        },
+        {
+          emoji: "✨",
+          text: <>Star on Github</>,
+          link: "https://github.com/jacob-brn/optiqui",
+        },
+      ];
+
+      return (
+        <>
+          <SlidingBadge messages={messages} />
+        </>
+      );
+    }
+
+````
+</TabsContent>
+
+</Tabs>
 
 ## Installation Steps
 
 1. **Install Dependencies**:
-   Install the required dependencies using npm:
+  Install the required dependencies using npm:
 
-   ```bash
-   npm install framer-motion react-icons
-   ```
+  ```bash
+  npm install framer-motion react-icons
+````
 
 2. **Copy this Component**
 
 ```typescript:SlidingBadge.tsx showLineNumbers
 "use client";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaXTwitter } from "react-icons/fa6";
 
 interface BadgeMessagesProps {
   emoji: string;
@@ -36,34 +117,19 @@ interface BadgeMessagesProps {
   link: string;
 }
 
-const BadgesMessages: BadgeMessagesProps[] = [
-  {
-    emoji: "❤️",
-    text: (
-      <>
-        Follow me on <FaXTwitter className="ml-1 text-xs" />
-      </>
-    ),
-    link: "https://x.com/jacobdev0",
-  },
-  {
-    emoji: "🦋",
-    text: <>Follow me on Bluesky</>,
-    link: "https://bsky.app/profile/jacobdev.bsky.social",
-  },
-  {
-    emoji: "✨",
-    text: <>Star on Github</>,
-    link: "https://github.com/jacob01-dev/optiqui",
-  },
-];
-const SlidingBadge = (): JSX.Element => {
+const SlidingBadge = ({
+  messages,
+  className,
+}: {
+  messages: BadgeMessagesProps[];
+  className?: string;
+}): JSX.Element => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const SLIDING_INTERVAL = 3000;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (currentIndex < BadgesMessages.length - 1)
+      if (currentIndex < messages.length - 1)
         setCurrentIndex((prevIndex) => prevIndex + 1);
       else setCurrentIndex(0);
     }, SLIDING_INTERVAL);
@@ -71,8 +137,13 @@ const SlidingBadge = (): JSX.Element => {
   }, [currentIndex]);
 
   return (
-    <Link href={BadgesMessages[currentIndex].link} target="_blank">
-      <motion.div className="inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs rounded-full overflow-hidden">
+    <Link href={messages[currentIndex].link} target="_blank">
+      <motion.div
+        className={cn(
+          "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs rounded-full overflow-hidden",
+          className
+        )}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -87,13 +158,13 @@ const SlidingBadge = (): JSX.Element => {
             }}
             className="flex items-center"
           >
-            {BadgesMessages[currentIndex].emoji}
+            {messages[currentIndex].emoji}
             <div
               data-orientation="vertical"
               role="none"
               className="shrink-0 bg-border w-px mx-2 h-4"
             />
-            {BadgesMessages[currentIndex].text}
+            {messages[currentIndex].text}
             <ChevronRight className="ml-1 h-4 w-4 text-muted-foreground" />
           </motion.div>
         </AnimatePresence>
@@ -119,6 +190,18 @@ export default SlidingBadge;
     </thead>
     <tbody>
       <tr>
+        <td>messages</td>
+        <td>BadgeMessagesProps[]</td>
+        <td>Content of badge</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>Additional classnames</td>
+        <td>-</td>
+      </tr>
+      <tr>
         <td>currentIndex</td>
         <td>number</td>
         <td>Index of current shown message</td>
@@ -129,12 +212,6 @@ export default SlidingBadge;
         <td>number</td>
         <td>Delay between slides (in ms)</td>
         <td>3000</td>
-      </tr>
-      <tr>
-        <td>BadgeMessages</td>
-        <td>BadgeMessagesProps[]</td>
-        <td>Content of badge</td>
-        <td>-</td>
       </tr>
     </tbody>
   </table>

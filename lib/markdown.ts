@@ -28,6 +28,9 @@ import Footer from "@/components/sections/footer/Footer1";
 import SlidingBadge from "@/components/SlidingBadge";
 import CubicTextAnimation from "@/components/CubicTextAnimation";
 import HeroMedia from "@/components/HeroMedia";
+import { Button } from "@/components/ui/button";
+import PixelCard from "@/components/PixelCard";
+import Script from "next/script";
 
 // add custom components
 const components = {
@@ -35,6 +38,8 @@ const components = {
   TabsContent,
   TabsList,
   TabsTrigger,
+  Button,
+  Script,
   pre: Pre,
   Note,
   Stepper,
@@ -53,6 +58,7 @@ const components = {
   SlidingBadge,
   CubicTextAnimation,
   HeroMedia,
+  PixelCard,
 };
 
 // can be used for other pages like blogs, Guides etc

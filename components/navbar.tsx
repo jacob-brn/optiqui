@@ -1,17 +1,24 @@
 import { ModeToggle } from "@/components/theme-toggle";
-import { GithubIcon, TwitterIcon, CommandIcon, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Search from "./search";
 import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
-import { page_routes } from "@/lib/routes-config";
+import { ROUTES, getRecurrsiveAllLinks } from "@/lib/routes-config";
 import { SheetClose } from "@/components/ui/sheet";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
 
+const page_routes = ROUTES.filter(
+  (route) => route.title.toLowerCase() === "components"
+)
+  .map((it) => getRecurrsiveAllLinks(it))
+  .flat()
+  .sort((a, b) => a.title.localeCompare(b.title));
+
 export const NAVLINKS = [
   {
-    title: "Docs",
+    title: "Components",
     href: `/docs${page_routes[0].href}`,
   },
 ];
@@ -34,16 +41,15 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
-            <Search />
             <div className="flex ml-2.5 sm:ml-0">
               <Link
-                href="https://github.com/jacob01-dev/optiqui"
+                href="https://github.com/jacob-brn/optiqui"
                 className={buttonVariants({ variant: "ghost", size: "icon" })}
               >
                 <FaGithub className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <Link
-                href="https://x.com/jacobdev0"
+                href="https://x.com/jacob_brn"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",
@@ -53,6 +59,7 @@ export function Navbar() {
               </Link>
               <ModeToggle />
             </div>
+            <Search />
           </div>
         </div>
       </div>

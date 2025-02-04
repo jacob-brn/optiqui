@@ -11,12 +11,12 @@ description: Customizable component for Hero Section capabale of displaying imag
     <TabsTrigger value="code">Code</TabsTrigger>
   </TabsList>
   <TabsContent value="example">
-        <ComponentPreview className="my-5 grid items-center justify-center py-24 px-8">
+        <ComponentPreview className="my-5  px-8 w-full h-min flex flex-row gap-x-2 justify-end items-center relative">
             <HeroMedia
             type="video"
             iframe={false}
             className="border border-border"
-            thumbnailUrl="/footer-1.png"
+            thumbnailUrl="/heromedia-thumbnail.jpg"
             videoUrl="/optiq-ui-saas-template.mp4"
             buttonTitle="See video"
             buttonDescription="Just click play button"
@@ -330,10 +330,41 @@ export default HeroMedia;
 
 ### VideoPopverProps
 
-| Prop        | Type            | Description                          |
-| ----------- | --------------- | ------------------------------------ |
-| children    | React.ReactNode | modal trigger                        |
-| title       | string          | title of modal                       |
-| description | string          | description of modal                 |
-| iframe      | boolean         | display video in iframe or video tag |
-| videoUrl    | string          | URL of video                         |
+<div className="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Prop</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>children</td>
+        <td>React.ReactNode</td>
+        <td>modal trigger</td>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td>string</td>
+        <td>title of modal</td>
+      </tr>
+      <tr>
+        <td>description</td>
+        <td>string</td>
+        <td>description of modal</td>
+      </tr>
+      <tr>
+        <td>iframe</td>
+        <td>boolean</td>
+        <td>display video in iframe or video tag</td>
+      </tr>
+      <tr>
+        <td>videoUrl</td>
+        <td>string</td>
+        <td>URL of video</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

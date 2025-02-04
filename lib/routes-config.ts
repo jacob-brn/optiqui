@@ -19,6 +19,34 @@ export const ROUTES: EachRoute[] = [
     ],
   },
   {
+    title: "Templates",
+    href: "/templates",
+    noLink: true,
+    items: [{ title: "SaaS", href: "/saas", badges: ["Soon", "Pro"] }],
+  },
+  {
+    title: "Components",
+    href: "/components",
+    noLink: true,
+    items: [
+      { title: "Sliding Badge", href: "/sliding_badge" },
+      {
+        title: "Cubic Text Animation",
+        href: "/cubic_text_animation",
+      },
+      {
+        title: "Hero Media",
+        href: "/hero_media",
+        badges: ["New"],
+      },
+      {
+        title: "Pixel Card",
+        href: "/pixel_card",
+        badges: ["New"],
+      },
+    ],
+  },
+  {
     title: "Headers",
     href: "/headers",
     noLink: true,
@@ -60,29 +88,11 @@ export const ROUTES: EachRoute[] = [
     noLink: true,
     items: [{ title: "Footer 1", href: "/1" }],
   },
-  {
-    title: "Components",
-    href: "/components",
-    noLink: true,
-    items: [
-      { title: "Sliding Badge", href: "/sliding_badge", badges: ["New"] },
-      {
-        title: "Cubic Text Animation",
-        href: "/cubic_text_animation",
-        badges: ["New"],
-      },
-      {
-        title: "Hero Media",
-        href: "/hero_media",
-        badges: ["New"],
-      },
-    ],
-  },
 ];
 
 type Page = { title: string; href: string };
 
-function getRecurrsiveAllLinks(node: EachRoute) {
+export function getRecurrsiveAllLinks(node: EachRoute) {
   const ans: Page[] = [];
   if (!node.noLink) {
     ans.push({ title: node.title, href: node.href });
