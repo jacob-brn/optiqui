@@ -168,16 +168,6 @@ const HeroSection = () => {
               }}
             />
           </div>
-          <PixelCard
-            text="Star this project on Github"
-            icon={<Star className="w-8 h-8" />}
-            className="w-full max-w-full h-24 rounded-xl border border-border"
-            canvasProps={{
-              gap: 0,
-              speed: 500,
-              colors: "#FFD700, #FFFACD, #E6B400, #FFBF00, #F4C430, #FFC300",
-            }}
-          />
         </div>
         <div className="w-full h-full">
           <HeroMedia

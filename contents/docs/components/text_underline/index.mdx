@@ -1,0 +1,151 @@
+---
+title: Text Underline
+description: A text animation with animated underline
+---
+
+<Tabs defaultValue="example" className="pt-5 pb-1">
+  <TabsList>
+    <TabsTrigger value="example">Example</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="example">
+        <ComponentPreview className="mt-5 w-full h-full flex justify-center items-center text-2xl lg:text-6xl text-center text-balance">
+            Cool <TextUnderline text="underline"/> effect
+        </ComponentPreview>
+    </TabsContent>
+  <TabsContent value="code">
+    ```typescript
+    // DemoPage.tsx
+    import TextUnderline from "@/components/TextUnderline";
+
+    export default function DemoPage() {
+      return (
+        <div className="text-2xl lg:text-6xl text-center text-balance text-foreground">
+          Cool <TextUnderline text="underline" /> effect
+        </div>
+      );
+    }
+    ```
+    </TabsContent>
+
+</Tabs>
+
+## Installation Steps
+
+1. **Install Dependencies**:
+   Install the required dependencies using npm:
+
+   ```bash
+   npm install framer-motion
+   ```
+
+2. **Copy this Component**
+
+```typescript:TextUnderline.tsx showLineNumbers
+"use client";
+import { cn } from "@/lib/utils";
+import { motion, cubicBezier } from "framer-motion";
+
+interface TextUnderlineProps {
+  text: string;
+  className?: string;
+  lineClassName?: string;
+  lineWidth?: number;
+  waitTillInView?: boolean;
+}
+
+const TextUnderline = ({
+  text,
+  className,
+  lineClassName,
+  lineWidth = 6,
+  waitTillInView = true,
+}: TextUnderlineProps) => {
+  const customEasing = cubicBezier(0.25, 0.8, 0.25, 1);
+
+  return (
+    <span className={cn("relative inline-block", className)}>
+      {text}
+      <motion.svg
+        viewBox="0 0 200 40"
+        className="absolute -bottom-3 left-0 w-full h-5 pointer-events-none"
+        preserveAspectRatio="none"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: waitTillInView }}
+        transition={{
+          delayChildren: 0.3,
+        }}
+      >
+        <motion.path
+          d="M0,20 Q25,5 50,20 T100,20 T150,20 T200,20"
+          fill="none"
+          strokeWidth={lineWidth}
+          stroke="currentColor"
+          strokeLinecap="round"
+          className={cn("text-primary", lineClassName)}
+          variants={{
+            hidden: { pathLength: 0 },
+            visible: {
+              pathLength: 1,
+              transition: {
+                duration: 1.5,
+                ease: customEasing,
+              },
+            },
+          }}
+        />
+      </motion.svg>
+    </span>
+  );
+};
+
+export default TextUnderline;
+```
+
+## TextUnderlineProps
+
+<div className="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Prop</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>text</td>
+        <td>string</td>
+        <td>Text to get underlined</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>Additional classNames applied to text</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>lineClassName</td>
+        <td>string</td>
+        <td>Additional classNames applied to underline</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>lineWidth</td>
+        <td>number</td>
+        <td>Thickness of underline</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>waitTillInView</td>
+        <td>boolean</td>
+        <td>Don't run animation until in view</td>
+        <td>true</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

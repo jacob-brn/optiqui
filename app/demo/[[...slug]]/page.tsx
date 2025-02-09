@@ -100,20 +100,14 @@ export default function DemoPage({
       <Component />
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-background rounded-full flex items-center justify-center py-1 px-8 gap-x-4 z-[999999] border-primary border-y-4 border-x-[3px] text-foreground opacity-30 transition-all duration-700 hover:opacity-100">
         <Link
-          href={"https://x.com/jacobdev0"}
+          href={"https://x.com/jacob_brn"}
           className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-accent"
         >
           <FaXTwitter className="w-4 h-4" />
         </Link>
-        <Link
-          href="https://bsky.app/profile/jacobdev.bsky.social"
-          className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-accent"
-        >
-          <FaBluesky className="w-4 h-4" />
-        </Link>
         <ModeToggle />
         <Link
-          href={"https://github.com/jacob01-dev/optiqui"}
+          href={"https://github.com/jacob-brn/optiqui"}
           className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-accent"
         >
           <FaGithub className="w-4 h-4" />

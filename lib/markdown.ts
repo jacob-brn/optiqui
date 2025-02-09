@@ -31,6 +31,9 @@ import HeroMedia from "@/components/HeroMedia";
 import { Button } from "@/components/ui/button";
 import PixelCard from "@/components/PixelCard";
 import Script from "next/script";
+import TextUnderline from "@/components/TextUnderline";
+import TextCircle from "@/components/TextCircle";
+import TextHighlight from "@/components/TextHighlight";
 
 // add custom components
 const components = {
@@ -59,6 +62,9 @@ const components = {
   CubicTextAnimation,
   HeroMedia,
   PixelCard,
+  TextUnderline,
+  TextCircle,
+  TextHighlight,
 };
 
 // can be used for other pages like blogs, Guides etc

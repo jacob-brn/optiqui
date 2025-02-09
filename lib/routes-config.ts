@@ -44,6 +44,21 @@ export const ROUTES: EachRoute[] = [
         href: "/pixel_card",
         badges: ["New"],
       },
+      {
+        title: "Text Underline",
+        href: "/text_underline",
+        badges: ["New"],
+      },
+      {
+        title: "Text Circle",
+        href: "/text_circle",
+        badges: ["New"],
+      },
+      {
+        title: "Text Highlight",
+        href: "/text_highlight",
+        badges: ["New"],
+      },
     ],
   },
   {
