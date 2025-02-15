@@ -2,12 +2,10 @@ import { cn } from "@/lib/utils";
 
 const TextNoise = ({
   text,
-  textClassName,
-  overlayClassName,
+  className,
 }: {
   text: string;
-  textClassName?: string;
-  overlayClassName?: string;
+  className?: string;
 }): JSX.Element => {
   return (
     <span
@@ -16,10 +14,10 @@ const TextNoise = ({
         "before:absolute before:top-0 before:left-0 before:w-full before:h-full",
         "before:content-[''] before:opacity-[0.1] before:z-10 before:pointer-events-none",
         "before:bg-[url('/noise.gif')]",
-        overlayClassName
+        className
       )}
     >
-      <span className={cn("text-foreground", textClassName)}>{text}</span>
+      <span>{text}</span>
     </span>
   );
 };
