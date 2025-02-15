@@ -104,13 +104,13 @@ class PixelCanvas extends HTMLElement {
   }
 
   static css = `
-      :host {
-        display: grid;
-        inline-size: 100%;
-        block-size: 100%;
-        overflow: hidden;
-      }
-    `;
+    :host {
+      display: grid;
+      inline-size: 100%;
+      block-size: 100%;
+      overflow: hidden;
+    }
+  `;
 
   get colors() {
     return this.dataset.colors?.split(",") || ["#f8fafc", "#f1f5f9", "#cbd5e1"];
@@ -180,10 +180,13 @@ class PixelCanvas extends HTMLElement {
     this.resizeObserver = new ResizeObserver(() => this.init());
     this.resizeObserver.observe(this);
 
-    this._parent.addEventListener("mouseenter", this);
-    this._parent.addEventListener("mouseleave", this);
-
-    if (!this.noFocus) {
+    if (this.noFocus) {
+      // If noFocus is true, start animation immediately
+      this.handleAnimation("appear");
+    } else {
+      // Otherwise, add hover listeners
+      this._parent.addEventListener("mouseenter", this);
+      this._parent.addEventListener("mouseleave", this);
       this._parent.addEventListener("focusin", this);
       this._parent.addEventListener("focusout", this);
     }
@@ -191,19 +194,20 @@ class PixelCanvas extends HTMLElement {
 
   disconnectedCallback() {
     this.resizeObserver.disconnect();
-    this._parent.removeEventListener("mouseenter", this);
-    this._parent.removeEventListener("mouseleave", this);
-
     if (!this.noFocus) {
+      this._parent.removeEventListener("mouseenter", this);
+      this._parent.removeEventListener("mouseleave", this);
       this._parent.removeEventListener("focusin", this);
       this._parent.removeEventListener("focusout", this);
     }
-
+    cancelAnimationFrame(this.animation);
     delete this._parent;
   }
 
   handleEvent(event) {
-    this[event.type](event);
+    if (!this.noFocus) {
+      this[event.type](event);
+    }
   }
 
   mouseenter() {
@@ -289,13 +293,20 @@ class PixelCanvas extends HTMLElement {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     for (let i = 0; i < this.pixels.length; i++) {
+      if (this.noFocus && this.pixels[i].isIdle) {
+        // Only reset idle pixels if noFocus is true
+        this.pixels[i].isIdle = false;
+        this.pixels[i].size = this.pixels[i].maxSize;
+      }
       this.pixels[i][fnName]();
     }
 
-    if (this.pixels.every((pixel) => pixel.isIdle)) {
+    // Only cancel animation if all pixels are idle and noFocus is false
+    if (!this.noFocus && this.pixels.every((pixel) => pixel.isIdle)) {
       cancelAnimationFrame(this.animation);
     }
   }
 }
 
+// Register the custom element
 PixelCanvas.register();
