@@ -34,6 +34,7 @@ import Script from "next/script";
 import TextUnderline from "@/components/TextUnderline";
 import TextCircle from "@/components/TextCircle";
 import TextHighlight from "@/components/TextHighlight";
+import TextNoise from "@/components/TextNoise";
 
 // add custom components
 const components = {
@@ -65,6 +66,7 @@ const components = {
   TextUnderline,
   TextCircle,
   TextHighlight,
+  TextNoise,
 };
 
 // can be used for other pages like blogs, Guides etc

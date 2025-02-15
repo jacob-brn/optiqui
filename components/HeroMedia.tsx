@@ -25,6 +25,8 @@ type HeroMediaProps =
       alt?: string;
       buttonTitle?: never;
       buttonDescription?: never;
+      PopoverTitle?: never;
+      PopoverDescription?: never;
     }
   | {
       type: "video";
@@ -35,6 +37,8 @@ type HeroMediaProps =
       alt?: string;
       buttonTitle: string;
       buttonDescription: string;
+      PopoverTitle?: string;
+      PopoverDescription?: string;
     };
 
 const VideoPopover = ({
@@ -96,6 +100,8 @@ const HeroMedia = ({
   alt = "Image showcasing product",
   buttonTitle,
   buttonDescription,
+  PopoverTitle,
+  PopoverDescription,
 }: HeroMediaProps): JSX.Element => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -121,8 +127,8 @@ const HeroMedia = ({
             quality={100}
           />
           <VideoPopover
-            title="See How it Works"
-            description=" Find out what you can do with FoxCut."
+            title={PopoverTitle || ""}
+            description={PopoverDescription || ""}
             videoUrl={videoUrl}
             iframe={iframe}
           >

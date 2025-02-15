@@ -59,6 +59,11 @@ export const ROUTES: EachRoute[] = [
         href: "/text_highlight",
         badges: ["New"],
       },
+      {
+        title: "Text Noise",
+        href: "/text_noise",
+        badges: ["New"],
+      },
     ],
   },
   {
