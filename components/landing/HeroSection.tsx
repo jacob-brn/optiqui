@@ -177,6 +177,8 @@ const HeroSection = () => {
             className="border border-border"
             buttonTitle="See video"
             buttonDescription="Just click play button"
+            PopoverTitle="Optiq UI SaaS Template"
+            PopoverDescription="Coming out soon!"
           />
         </div>
         <div className="w-full">
