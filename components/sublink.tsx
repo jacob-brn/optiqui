@@ -1,17 +1,10 @@
 import { EachRoute } from "@/lib/routes-config";
 import Anchor from "./anchor";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import { SheetClose } from "@/components/ui/sheet";
-import { Button } from "./ui/button";
-import { ChevronDown, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Badge } from "./ui/badge";
+import { motion } from "framer-motion";
 
 export default function SubLink({
   title,
@@ -30,7 +23,7 @@ export default function SubLink({
   }, [href, path]);
 
   const Comp = (
-    <Anchor activeClassName="text-primary font-semibold" href={href}>
+    <Anchor activeClassName="text-foreground font-semibold" href={href}>
       {title}
     </Anchor>
   );
@@ -47,26 +40,53 @@ export default function SubLink({
 
   if (!items) {
     return (
-      <div
-        className={cn(
-          "w-full flex flex-row items-center transition-all hover:text-primary gap-x-2 overflow-hidden"
+      <div className="relative group flex h-8 w-full items-center rounded-md px-2 font-normal text-foreground underline-offset-2 hover:bg-accent hover:text-accent-foreground gap-x-1">
+        {path === href && (
+          <motion.div
+            layoutId="active-bg"
+            className="absolute inset-0 bg-secondary rounded-md"
+            initial={{
+              opacity: 0,
+              scale: 0.95,
+              x: -10,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              x: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.95,
+              x: 10,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: [0.22, 1, 0.36, 1],
+              scale: {
+                type: "spring",
+                damping: 15,
+                stiffness: 200,
+              },
+            }}
+          />
         )}
-      >
-        {path === href && <div className="w-[2px] h-5 flex bg-primary ml-2" />}
-        {titleOrLink}
-        <div className="flex gap-1.5">
-          {badges?.map((badge, index) => (
-            <div
-              className={cn(
-                "z-10 rounded-sm bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none  no-underline group-hover:no-underline",
-                badge.toLowerCase() === "pro" && "bg-primary text-background",
-                badge.toLowerCase() === "soon" && "bg-muted text-foreground"
-              )}
-              key={index}
-            >
-              {badge}
-            </div>
-          ))}
+        <div className="relative z-10 flex items-center gap-x-1.5 w-full">
+          {titleOrLink}
+          <div className="flex">
+            {badges?.map((badge, index) => (
+              <div
+                className={cn(
+                  "z-10 rounded-md bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none no-underline group-hover:no-underline mr-1.5",
+                  badge.toLowerCase() === "pro" && "bg-primary text-background",
+                  badge.toLowerCase() === "soon" && "bg-muted text-foreground"
+                )}
+                key={index}
+              >
+                {badge}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -77,7 +97,7 @@ export default function SubLink({
       <div className="flex items-center gap-2">{titleOrLink}</div>
       <div
         className={cn(
-          "flex flex-col items-start sm:text-sm dark:text-stone-300/85 text-stone-800 ml-0.5 mt-2.5 gap-3",
+          "flex flex-col items-start sm:text-sm dark:text-stone-300/85 text-stone-800 ml-0.5 mt-2.5 gap-0.5",
           level > 0 && "pl-4 border-l ml-2"
         )}
       >
