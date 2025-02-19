@@ -10,7 +10,8 @@ description: Light rays effect, perfect for drawing attention
   </TabsList>
   <TabsContent value="example">
         <ComponentPreview className="mt-5 w-full h-[500px] flex justify-center items-center not-prose py-0 mb-0 bg-black">
-          <main className="w-full mx-auto px-4 relative overflow-hidden py-36">
+          <div className="w-full">
+            <main className="w-full mx-auto px-4 relative overflow-hidden py-36">
               <h1 className="tracking-tight font-bold text-4xl md:text-5xl lg:text-7xl text-center text-transparent bg-clip-text bg-gradient-to-t from-foreground via-neutral-400 to-neutral-600">
                 Lighten up your website <br />
                 with light rays
@@ -19,8 +20,9 @@ description: Light rays effect, perfect for drawing attention
                 Make your website stand out with moving light rays.
               </h2>
               <Rays castDirection="from-right" />
-              <div className="-z-10 w-full h-full absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_50%_100%_at_50%_0%,#000_70%,transparent_120%)]"></div>
             </main>
+            <div className="-z-10 w-full h-full absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_50%_100%_at_50%_0%,#000_70%,transparent_120%)]"></div>
+          </div>
         </ComponentPreview>
     </TabsContent>
   <TabsContent value="code">
