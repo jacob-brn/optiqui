@@ -35,6 +35,7 @@ import TextUnderline from "@/components/TextUnderline";
 import TextCircle from "@/components/TextCircle";
 import TextHighlight from "@/components/TextHighlight";
 import TextNoise from "@/components/TextNoise";
+import Rays from "@/components/Rays";
 
 // add custom components
 const components = {
@@ -67,6 +68,7 @@ const components = {
   TextCircle,
   TextHighlight,
   TextNoise,
+  Rays,
 };
 
 // can be used for other pages like blogs, Guides etc

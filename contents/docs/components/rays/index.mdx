@@ -1,0 +1,342 @@
+---
+title: Rays
+description: Light rays effect, perfect for drawing attention
+---
+
+<Tabs defaultValue="example" className="pt-5 pb-1">
+  <TabsList>
+    <TabsTrigger value="example">Example</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="example">
+        <ComponentPreview className="mt-5 w-full h-[500px] flex justify-center items-center not-prose py-0 mb-0 bg-black">
+          <main className="w-full mx-auto px-4 relative overflow-hidden py-36">
+              <h1 className="tracking-tight font-bold text-4xl md:text-5xl lg:text-7xl text-center text-transparent bg-clip-text bg-gradient-to-t from-foreground via-neutral-400 to-neutral-600">
+                Lighten up your website <br />
+                with light rays
+              </h1>
+              <h2 className="my-4 font-normal text-muted-foreground mx-auto mt-4 max-w-5xl text-center text-base md:mt-4 md:text-lg px-4">
+                Make your website stand out with moving light rays.
+              </h2>
+              <Rays castDirection="from-right" />
+              <div className="-z-10 w-full h-full absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_50%_100%_at_50%_0%,#000_70%,transparent_120%)]"></div>
+            </main>
+        </ComponentPreview>
+    </TabsContent>
+  <TabsContent value="code">
+    ```typescript
+    // DemoPage.tsx
+    import Rays from "@/components/Rays";
+
+    export default function DemoPage() {
+      return (
+        <div className="w-full">
+          <main className="w-full mx-auto px-4 relative overflow-hidden py-36">
+            <h1 className="tracking-tight font-bold text-4xl md:text-5xl lg:text-7xl text-center text-transparent bg-clip-text bg-gradient-to-t from-foreground via-neutral-400 to-neutral-600">
+              Lighten up your website <br />
+              with light rays
+            </h1>
+            <h2 className="my-4 font-normal text-muted-foreground mx-auto mt-4 max-w-5xl text-center text-base md:mt-4 md:text-lg px-4">
+              Make your website stand out with moving light rays.
+            </h2>
+            <Rays castDirection="from-right" rayColor="white" className="top-0" />
+            <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"/>
+          </main>
+        </div>
+      );
+    }
+    ```
+    </TabsContent>
+
+</Tabs>
+
+## Installation Steps
+
+1. **Install Dependencies**:
+   Install the required dependencies using npm:
+
+   ```bash
+   npm install framer-motion
+   ```
+
+2. **Copy this Component**
+
+```typescript:Rays.tsx showLineNumbers
+"use client";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+type Ray = {
+  rotate: number;
+  opacity: number;
+  translateY: number;
+};
+
+type CastDirectionType = "from-right" | "from-left" | "from-center";
+
+interface RaysProps {
+  className?: string;
+  rayColor?: string;
+  rayWidth?: string;
+  blurAmount?: string;
+  castDirection?: CastDirectionType;
+  animationDuration?: number;
+  animationDelay?: number;
+  staggerDelay?: number;
+  rays?: Ray[];
+}
+
+const POSITION_CLASSES: Record<CastDirectionType, string> = {
+  "from-right":
+    "absolute -top-1/4 left-full w-[300%] h-[200%] sm:w-[150%] sm:left-0 md:left-full",
+  "from-center":
+    "absolute -top-[150%] left-1/2 -translate-x-1/2 w-[300%] h-[200%] sm:w-[200%]",
+  "from-left":
+    "absolute -top-1/4 right-full w-[300%] h-[200%] sm:w-[150%] sm:right-0 md:right-full pointer-events-none",
+};
+
+const TRANSFORM_ORIGINS: Record<CastDirectionType, string> = {
+  "from-right": "top left",
+  "from-center": "top center",
+  "from-left": "top right",
+};
+
+const RAY_POSITIONS: Record<CastDirectionType, string> = {
+  "from-right": "top-0 left-0",
+  "from-center": "top-0 left-0",
+  "from-left": "top-0 right-0",
+};
+
+const Rays = ({
+  className,
+  rayColor = "white",
+  rayWidth,
+  blurAmount = "22px",
+  castDirection = "from-left",
+  animationDuration = 5,
+  animationDelay = 0.2,
+  staggerDelay = 0.2,
+  rays = [
+    { rotate: 10, opacity: 60, translateY: 0 },
+    { rotate: 2, opacity: 51, translateY: 15 },
+    { rotate: -3, opacity: 60, translateY: 30 },
+    { rotate: -9, opacity: 30, translateY: 45 },
+    { rotate: -10, opacity: 56, translateY: 60 },
+    { rotate: 22, opacity: 55, translateY: 75 },
+    { rotate: 5, opacity: 55, translateY: 0 },
+  ],
+}: RaysProps) => {
+  const positionClasses = POSITION_CLASSES[castDirection];
+  const transformOrigin = TRANSFORM_ORIGINS[castDirection];
+  const rayPosition = RAY_POSITIONS[castDirection];
+
+  const baseRotation =
+    castDirection === "from-left"
+      ? -45
+      : castDirection === "from-center"
+      ? 0
+      : 45;
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: staggerDelay,
+      },
+    },
+  };
+
+  const rayVariants = {
+    hidden: {
+      scaleY: 0,
+      height: 0,
+    },
+    visible: (index: number) => ({
+      scaleY: 1,
+      height: "200%",
+      transition: {
+        scaleY: {
+          duration: 1,
+          ease: "easeOut",
+        },
+        height: {
+          duration: 0,
+        },
+      },
+    }),
+  };
+
+  return (
+    <motion.div
+      className={cn(positionClasses, "pointer-events-none", className)}
+      style={{
+        filter: `blur(${blurAmount})`,
+        transform: `rotate(${baseRotation}deg)`,
+      }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      {rays.map((ray, index) => {
+        const opacityValue = ray.opacity / 100;
+        const individualDuration = animationDuration + index;
+
+        return (
+          <motion.div
+            key={index}
+            className={cn(
+              "absolute w-[15px] sm:w-[20px] md:w-[30px]",
+              rayPosition,
+              rayWidth
+            )}
+            style={{
+              background: `linear-gradient(to bottom, ${rayColor} 70%, transparent)`,
+              transformOrigin,
+              opacity: opacityValue,
+            }}
+            variants={rayVariants}
+            custom={index}
+            animate={{
+              translateY: [
+                ray.translateY,
+                ray.translateY + ray.rotate,
+                ray.translateY,
+              ],
+              rotate: [
+                ray.rotate,
+                ray.rotate + (index % 2 === 0 ? 2 : -2),
+                ray.rotate,
+              ],
+              filter: [
+                `blur(${blurAmount})`,
+                `blur(${Number.parseInt(blurAmount) - 8}px)`,
+                `blur(${blurAmount})`,
+              ],
+            }}
+            transition={{
+              translateY: {
+                delay: 1.5 + index * animationDelay,
+                duration: individualDuration,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+                repeatType: "reverse",
+              },
+              rotate: {
+                delay: 1.5 + index * animationDelay,
+                duration: individualDuration,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+                repeatType: "reverse",
+              },
+            }}
+          />
+        );
+      })}
+    </motion.div>
+  );
+};
+
+export default Rays;
+```
+
+## RaysProps
+
+<div className="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Prop</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>Additional classNames applied to rays container</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>rayColor</td>
+        <td>string</td>
+        <td>color of rays</td>
+        <td>white</td>
+      </tr>
+      <tr>
+        <td>rayWidth</td>
+        <td>string</td>
+        <td>width of ray in pixels</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>blurAmount</td>
+        <td>string</td>
+        <td>Blur of ray in pixels</td>
+        <td>22px</td>
+      </tr>
+      <tr>
+        <td>castDirection</td>
+        <td>from-right | from-left | from-center</td>
+        <td>From what direction cast rays</td>
+        <td>from-left</td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>number</td>
+        <td>Duration of animation</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>animationDelay</td>
+        <td>number</td>
+        <td>Delay of animation</td>
+        <td>0.2</td>
+      </tr>
+      <tr>
+        <td>staggerDelay</td>
+        <td>number</td>
+        <td>Stagger of each ray</td>
+        <td>0.2</td>
+      </tr>
+      <tr>
+        <td>rays</td>
+        <td>Ray[]</td>
+        <td>Custom array of rays</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Ray type
+
+<div className="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Prop</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>rotate</td>
+        <td>number</td>
+      </tr>
+      <tr>
+        <td>opacity</td>
+        <td>number</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>number</td>
+      </tr>
+      <tr>
+        <td>translateY</td>
+        <td>string</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
