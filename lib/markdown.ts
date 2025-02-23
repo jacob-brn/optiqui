@@ -36,6 +36,7 @@ import TextCircle from "@/components/TextCircle";
 import TextHighlight from "@/components/TextHighlight";
 import TextNoise from "@/components/TextNoise";
 import Rays from "@/components/Rays";
+import TextScanEffect from "@/components/TextScanEffect";
 
 // add custom components
 const components = {
@@ -69,6 +70,7 @@ const components = {
   TextHighlight,
   TextNoise,
   Rays,
+  TextScanEffect,
 };
 
 // can be used for other pages like blogs, Guides etc

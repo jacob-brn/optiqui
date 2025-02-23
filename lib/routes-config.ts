@@ -69,6 +69,11 @@ export const ROUTES: EachRoute[] = [
         href: "/rays",
         badges: ["New"],
       },
+      {
+        title: "Text Scan",
+        href: "/text_scan",
+        badges: ["New"],
+      },
     ],
   },
   {
