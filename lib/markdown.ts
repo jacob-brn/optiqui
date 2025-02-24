@@ -37,6 +37,7 @@ import TextHighlight from "@/components/TextHighlight";
 import TextNoise from "@/components/TextNoise";
 import Rays from "@/components/Rays";
 import TextScanEffect from "@/components/TextScanEffect";
+import BentoGrid from "@/components/BentoGrid";
 
 // add custom components
 const components = {
@@ -71,6 +72,7 @@ const components = {
   TextNoise,
   Rays,
   TextScanEffect,
+  BentoGrid,
 };
 
 // can be used for other pages like blogs, Guides etc

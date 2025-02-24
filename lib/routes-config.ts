@@ -37,32 +37,26 @@ export const ROUTES: EachRoute[] = [
       {
         title: "Hero Media",
         href: "/hero_media",
-        badges: ["New"],
       },
       {
         title: "Pixel Card",
         href: "/pixel_card",
-        badges: ["New"],
       },
       {
         title: "Text Underline",
         href: "/text_underline",
-        badges: ["New"],
       },
       {
         title: "Text Circle",
         href: "/text_circle",
-        badges: ["New"],
       },
       {
         title: "Text Highlight",
         href: "/text_highlight",
-        badges: ["New"],
       },
       {
         title: "Text Noise",
         href: "/text_noise",
-        badges: ["New"],
       },
       {
         title: "Rays",
@@ -72,6 +66,11 @@ export const ROUTES: EachRoute[] = [
       {
         title: "Text Scan",
         href: "/text_scan",
+        badges: ["New"],
+      },
+      {
+        title: "Bento Grid",
+        href: "/bento_grid",
         badges: ["New"],
       },
     ],
