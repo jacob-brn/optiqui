@@ -49,7 +49,10 @@ const BentoGridItem = ({
     >
       <div className={`relative h-full w-full p-6 flex flex-col`}>
         <div
-          className={`z-[-1] pointer-events-none absolute inset-0 ${gradient} transition-all duration-500`}
+          className={cn(
+            "z-[-1] pointer-events-none absolute inset-0 transition-all duration-500",
+            gradient
+          )}
         />
         <GrainyBackground />
         <div className="relative w-full mb-4 rounded-lg overflow-hidden flex flex-grow">
@@ -89,7 +92,7 @@ const BentoGridItem = ({
 
 const BentoGrid = ({ items }: { items: BentoGridItemProps[] }) => {
   return (
-    <div className="grid md:auto-rows-[20rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-8 py-12">
+    <div className="grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-8 py-12">
       {items.map((item, index) => (
         <BentoGridItem
           key={index}
