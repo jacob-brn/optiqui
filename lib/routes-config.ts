@@ -31,8 +31,8 @@ export const ROUTES: EachRoute[] = [
     items: [
       { title: "Sliding Badge", href: "/sliding_badge" },
       {
-        title: "Cubic Text Animation",
-        href: "/cubic_text_animation",
+        title: "Text Cubic",
+        href: "/text_cubic",
       },
       {
         title: "Hero Media",

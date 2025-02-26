@@ -8,10 +8,10 @@ import { ROUTES, getRecurrsiveAllLinks } from "@/lib/routes-config";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaReact, FaXTwitter } from "react-icons/fa6";
 import { ArrowDownRight, Heart, Star } from "lucide-react";
-import SlidingBadge from "../SlidingBadge";
-import PixelCard from "../PixelCard";
-import CubicTextAnimation from "../CubicTextAnimation";
-import HeroMedia from "../HeroMedia";
+import SlidingBadge from "@/registry/ui/SlidingBadge";
+import PixelCard from "@/registry/ui/PixelCard";
+import HeroMedia from "@/registry/ui/HeroMedia";
+import TextCubic from "@/registry/ui/TextCubic";
 
 const page_routes = ROUTES.filter(
   (route) => route.title.toLowerCase() === "components"
@@ -190,7 +190,7 @@ const HeroSection = () => {
                 breaking a sweat.
               </p>
             </div>
-            <CubicTextAnimation
+            <TextCubic
               text="Hover over me to see magic"
               animateOnHover
               className="cursor-pointer text-4xl font-semibold text-foreground/70 mt-6"

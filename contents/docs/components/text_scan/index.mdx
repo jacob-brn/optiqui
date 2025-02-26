@@ -11,7 +11,7 @@ description: Text scan animation on hover
   <TabsContent value="example">
         <ComponentPreview className="mt-5 w-full h-[500px] flex justify-center items-center not-prose py-0 mb-0 bg-black">
          <div className="w-full">
-            <TextScanEffect
+            <TextScan
                 text={
                   <>
                     <div>Build $10k website</div>
@@ -25,12 +25,12 @@ description: Text scan animation on hover
   <TabsContent value="code">
     ```typescript
     // DemoPage.tsx
-    import TextScanEffect from "@/components/TextScanEffect";
+    import TextScan from "@/components/TextScan";
 
     export default function DemoPage() {
       return (
         <div className="w-full">
-          <TextScanEffect
+          <TextScan
             text={
               <>
                 <div>Build $10k website</div>

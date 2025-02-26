@@ -5,7 +5,7 @@ import {
   useAnimationControls,
   useMotionValue,
   delay,
-} from "framer-motion";
+} from "motion/react";
 import { useEffect, useRef } from "react";
 
 const topLetterVariants = {
@@ -34,7 +34,7 @@ const bottomLetterVariants = {
   },
 };
 
-const CubicTextAnimation = ({
+const TextCubic = ({
   text,
   animateOnHover = false,
   className,
@@ -127,4 +127,4 @@ const CubicTextAnimation = ({
   );
 };
 
-export default CubicTextAnimation;
+export default TextCubic;

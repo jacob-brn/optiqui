@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-highlight",
+  "type": "registry:component",
+  "title": "Text Highlight",
+  "description": "A text animation with marker-like highlighting",
+  "registryDependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/TextHighlight.tsx",
+      "content": "\"use client\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { motion, cubicBezier } from \"motion/react\";\r\n\r\ntype highlightLayerType = {\r\n  opacity: number;\r\n  rotate: number;\r\n  delay: number;\r\n  direction: number;\r\n};\r\n\r\ninterface TextHighlightProps {\r\n  text: string;\r\n  customOverlays?: highlightLayerType[];\r\n  textClassName?: string;\r\n  highlightClassName?: string;\r\n  waitTillInView?: boolean;\r\n}\r\n\r\nconst TextHighlight = ({\r\n  text,\r\n  customOverlays,\r\n  textClassName,\r\n  highlightClassName,\r\n  waitTillInView = true,\r\n}: TextHighlightProps): JSX.Element => {\r\n  const highlightDuration = 0.5;\r\n  const highlightLayers = customOverlays || [\r\n    { opacity: 0.5, rotate: 0, delay: 0, direction: 1 },\r\n    { opacity: 0.3, rotate: -0.7, delay: 0.4, direction: -1 },\r\n    { opacity: 0.4, rotate: 0.7, delay: 0.8, direction: 1 },\r\n  ];\r\n\r\n  const customEase = cubicBezier(0.25, 0.1, 0.25, 1);\r\n\r\n  return (\r\n    <span className=\"relative inline-block\">\r\n      <span\r\n        className={cn(\r\n          \"relative z-10 text-foreground dark:mix-blend-lighten\",\r\n          textClassName\r\n        )}\r\n      >\r\n        {text}\r\n      </span>\r\n      <motion.span\r\n        transition={{ delay: 1 }}\r\n        initial=\"hidden\"\r\n        whileInView=\"visible\"\r\n        viewport={{ once: waitTillInView }}\r\n      >\r\n        {highlightLayers.map((layer, index) => (\r\n          <motion.span\r\n            key={index}\r\n            className={cn(\"absolute inset-0 bg-primary\", highlightClassName)}\r\n            style={{\r\n              originX: layer.direction > 0 ? 0 : 1,\r\n              originY: 1,\r\n              opacity: layer.opacity,\r\n            }}\r\n            variants={{\r\n              visible: {\r\n                scaleX: 1,\r\n                rotate: layer.rotate,\r\n              },\r\n              hidden: {\r\n                scaleX: 0,\r\n                rotate: 0,\r\n              },\r\n            }}\r\n            transition={{\r\n              duration: highlightDuration,\r\n              delay: layer.delay + highlightDuration,\r\n              ease: customEase,\r\n            }}\r\n          />\r\n        ))}\r\n      </motion.span>\r\n    </span>\r\n  );\r\n};\r\n\r\nexport default TextHighlight;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-badge",
+  "type": "registry:component",
+  "title": "Sliding Badge",
+  "description": "Animated Badge with messages sliding from left to right",
+  "registryDependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/SlidingBadge.tsx",
+      "content": "\"use client\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { AnimatePresence, motion } from \"motion/react\";\r\nimport { ChevronRight } from \"lucide-react\";\r\nimport Link from \"next/link\";\r\nimport { useEffect, useState } from \"react\";\r\n\r\ninterface BadgeMessagesProps {\r\n  emoji: string;\r\n  text: JSX.Element;\r\n  link: string;\r\n}\r\n\r\nconst SlidingBadge = ({\r\n  messages,\r\n  className,\r\n}: {\r\n  messages: BadgeMessagesProps[];\r\n  className?: string;\r\n}): JSX.Element => {\r\n  const [currentIndex, setCurrentIndex] = useState<number>(0);\r\n  const SLIDING_INTERVAL = 3000;\r\n\r\n  useEffect(() => {\r\n    const interval = setInterval(() => {\r\n      if (currentIndex < messages.length - 1)\r\n        setCurrentIndex((prevIndex) => prevIndex + 1);\r\n      else setCurrentIndex(0);\r\n    }, SLIDING_INTERVAL);\r\n    return () => clearInterval(interval);\r\n  }, [currentIndex]);\r\n\r\n  return (\r\n    <Link href={messages[currentIndex].link} target=\"_blank\">\r\n      <motion.div\r\n        className={cn(\r\n          \"inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs rounded-full overflow-hidden\",\r\n          className\r\n        )}\r\n      >\r\n        <AnimatePresence mode=\"wait\">\r\n          <motion.div\r\n            key={currentIndex}\r\n            initial={{ x: \"-100%\", opacity: 0 }}\r\n            animate={{ x: 0, opacity: 1 }}\r\n            exit={{ x: \"100%\", opacity: 0 }}\r\n            transition={{\r\n              ease: \"easeInOut\",\r\n              type: \"spring\",\r\n              stiffness: 100,\r\n              damping: 20,\r\n            }}\r\n            className=\"flex items-center\"\r\n          >\r\n            {messages[currentIndex].emoji}\r\n            <div\r\n              data-orientation=\"vertical\"\r\n              role=\"none\"\r\n              className=\"shrink-0 bg-border w-px mx-2 h-4\"\r\n            />\r\n            {messages[currentIndex].text}\r\n            <ChevronRight className=\"ml-1 h-4 w-4 text-muted-foreground\" />\r\n          </motion.div>\r\n        </AnimatePresence>\r\n      </motion.div>\r\n    </Link>\r\n  );\r\n};\r\n\r\nexport default SlidingBadge;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

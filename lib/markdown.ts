@@ -13,9 +13,12 @@ import { visit } from "unist-util-visit";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Pre from "@/components/markdown/pre";
 import Note from "@/components/markdown/note";
+import { Button } from "@/components/ui/button";
 import { Stepper, StepperItem } from "@/components/markdown/stepper";
 import Image from "@/components/markdown/image";
 import Link from "@/components/markdown/link";
+import Script from "next/script";
+
 import LivePreviewButton from "@/components/LivePreviewButton";
 import { Header } from "@/components/sections/header/Header1";
 import ComponentPreview from "@/components/ComponentPreview";
@@ -25,19 +28,18 @@ import PricingSection from "@/components/sections/pricing/PricingSection1";
 import HeroSection from "@/components/sections/hero/HeroSection1";
 import Faq1 from "@/components/sections/faq/Faq1";
 import Footer from "@/components/sections/footer/Footer1";
-import SlidingBadge from "@/components/SlidingBadge";
-import CubicTextAnimation from "@/components/CubicTextAnimation";
-import HeroMedia from "@/components/HeroMedia";
-import { Button } from "@/components/ui/button";
-import PixelCard from "@/components/PixelCard";
-import Script from "next/script";
-import TextUnderline from "@/components/TextUnderline";
-import TextCircle from "@/components/TextCircle";
-import TextHighlight from "@/components/TextHighlight";
-import TextNoise from "@/components/TextNoise";
-import Rays from "@/components/Rays";
-import TextScanEffect from "@/components/TextScanEffect";
-import BentoGrid from "@/components/BentoGrid";
+
+import SlidingBadge from "@/registry/ui/SlidingBadge";
+import TextCubic from "@/registry/ui/TextCubic";
+import HeroMedia from "@/registry/ui/HeroMedia";
+import PixelCard from "@/registry/ui/PixelCard";
+import TextUnderline from "@/registry/ui/TextUnderline";
+import TextCircle from "@/registry/ui/TextCircle";
+import TextHighlight from "@/registry/ui/TextHighlight";
+import TextNoise from "@/registry/ui/TextNoise";
+import Rays from "@/registry/ui/Rays";
+import TextScan from "@/registry/ui/TextScan";
+import BentoGrid from "@/registry/ui/BentoGrid";
 
 // add custom components
 const components = {
@@ -62,8 +64,9 @@ const components = {
   HeroSection,
   Footer,
   Faq1,
+  //components
   SlidingBadge,
-  CubicTextAnimation,
+  TextCubic,
   HeroMedia,
   PixelCard,
   TextUnderline,
@@ -71,7 +74,7 @@ const components = {
   TextHighlight,
   TextNoise,
   Rays,
-  TextScanEffect,
+  TextScan,
   BentoGrid,
 };
 

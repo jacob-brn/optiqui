@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, useSpring, useTransform, useMotionValue } from "framer-motion";
+import { motion, useSpring, useTransform, useMotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const useSmoothMotionValue = (initial: number) => {
@@ -13,18 +13,18 @@ const useSmoothMotionValue = (initial: number) => {
   return { motionValue, smoothMotionValue };
 };
 
-interface TextScanEffectProps {
+interface TextScanProps {
   text: string | React.ReactNode;
   color?: string;
   noise?: boolean;
   className?: string;
 }
-const TextScanEffect = ({
+const TextScan = ({
   text,
   color = "#F43F5E",
   noise = true,
   className,
-}: TextScanEffectProps) => {
+}: TextScanProps) => {
   const { motionValue: textY, smoothMotionValue: smoothTextY } =
     useSmoothMotionValue(50);
   const { motionValue: overlayY, smoothMotionValue: smoothOverlayY } =
@@ -90,4 +90,4 @@ const TextScanEffect = ({
   );
 };
 
-export default TextScanEffect;
+export default TextScan;

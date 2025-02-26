@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { Play, X } from "lucide-react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import {
   Dialog,

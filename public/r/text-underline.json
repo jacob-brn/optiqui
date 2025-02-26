@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-underline",
+  "type": "registry:component",
+  "title": "Text Underline",
+  "description": "A text animation with animated underline",
+  "registryDependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/TextUnderline.tsx",
+      "content": "\"use client\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { motion, cubicBezier } from \"motion/react\";\r\n\r\ninterface TextUnderlineProps {\r\n  text: string;\r\n  className?: string;\r\n  lineClassName?: string;\r\n  lineWidth?: number;\r\n  waitTillInView?: boolean;\r\n}\r\n\r\nconst TextUnderline = ({\r\n  text,\r\n  className,\r\n  lineClassName,\r\n  lineWidth = 6,\r\n  waitTillInView = true,\r\n}: TextUnderlineProps) => {\r\n  const customEasing = cubicBezier(0.25, 0.8, 0.25, 1);\r\n\r\n  return (\r\n    <span className={cn(\"relative inline-block\", className)}>\r\n      {text}\r\n      <motion.svg\r\n        viewBox=\"0 0 200 40\"\r\n        className=\"absolute -bottom-3 left-0 w-full h-5 pointer-events-none\"\r\n        preserveAspectRatio=\"none\"\r\n        initial=\"hidden\"\r\n        whileInView=\"visible\"\r\n        viewport={{ once: waitTillInView }}\r\n        transition={{\r\n          delayChildren: 0.3,\r\n        }}\r\n      >\r\n        <motion.path\r\n          d=\"M0,20 Q25,5 50,20 T100,20 T150,20 T200,20\"\r\n          fill=\"none\"\r\n          strokeWidth={lineWidth}\r\n          stroke=\"currentColor\"\r\n          strokeLinecap=\"round\"\r\n          className={cn(\"text-primary\", lineClassName)}\r\n          variants={{\r\n            hidden: { pathLength: 0 },\r\n            visible: {\r\n              pathLength: 1,\r\n              transition: {\r\n                duration: 1.5,\r\n                ease: customEasing,\r\n              },\r\n            },\r\n          }}\r\n        />\r\n      </motion.svg>\r\n    </span>\r\n  );\r\n};\r\n\r\nexport default TextUnderline;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

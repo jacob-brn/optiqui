@@ -1,5 +1,5 @@
 ---
-title: Cubic Text Animation
+title: Text Cubic
 description: Text animation with animated letters looking like rubik's cube.
 ---
 
@@ -12,18 +12,18 @@ description: Text animation with animated letters looking like rubik's cube.
   </TabsList>
   <TabsContent value="example">
         <ComponentPreview className="my-5 grid items-center justify-center py-24">
-            <CubicTextAnimation text="✨Cool Text Animation✨" animateOnHover className="cursor-pointer text-xl lg:text-4xl font-semibold text-center"/>
+            <TextCubic text="✨Cool Text Animation✨" animateOnHover className="cursor-pointer text-xl lg:text-4xl font-semibold text-center"/>
         </ComponentPreview>
     </TabsContent>
   <TabsContent value="code">
     ```typescript
     // DemoPage.tsx
-    import CubicTextAnimation from "@/components/CubicTextAnimation";
+    import TextCubic from "@/components/TextCubic";
 
     export default function DemoPage() {
         return (
             <>
-                <CubicTextAnimation
+                <TextCubic
                     text="✨Cool Text Animation✨"
                     animateOnHover
                     className="cursor-pointer text-xl lg:text-4xl font-semibold text-center"

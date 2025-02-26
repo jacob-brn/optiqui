@@ -2,42 +2,13 @@ import { cn } from "@/lib/utils";
 import { ArrowDownRight } from "lucide-react";
 import Image from "next/image";
 
-const items = [
-  {
-    title: "Item 1",
-    description:
-      "Item 1 is a beautiful and unique item. It has pink grainy gradient.",
-    gradient: "bg-gradient-to-br from-purple-500 to-pink-500",
-    image:
-      "https://images.unsplash.com/photo-1555988776-c3f17e5cb789?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Item 2",
-    description:
-      "Item 2 is a beautiful and unique item. It has blue grainy gradient.",
-    gradient: "bg-gradient-to-br from-blue-500 to-teal-500",
-    image:
-      "https://images.unsplash.com/photo-1468581264429-2548ef9eb732?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Item 3",
-    description:
-      "Item 3 is a beautiful and unique item. It has green grainy gradient.",
-    gradient: "bg-gradient-to-br from-green-500 to-emerald-500",
-    image:
-      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    className: "md:row-span-2",
-  },
-  {
-    title: "Item 4",
-    description:
-      "Item 4 is a beautiful and unique item. It has red grainy gradient.",
-    gradient: "bg-gradient-to-br from-rose-500 to-red-500",
-    image:
-      "https://images.unsplash.com/photo-1723599033885-8180ab35791f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    className: "md:col-span-2",
-  },
-];
+interface BentoGridItemProps {
+  title: string;
+  description: string;
+  gradient: string;
+  image: string;
+  className?: string;
+}
 
 const GrainyBackground = () => {
   return (
@@ -62,7 +33,13 @@ const BentoGridItem = ({
   imageSrc,
   gradient,
   className,
-}: any) => {
+}: {
+  title: string;
+  description: string;
+  imageSrc: string;
+  gradient: string;
+  className?: string;
+}) => {
   return (
     <div
       className={cn(
@@ -110,7 +87,7 @@ const BentoGridItem = ({
   );
 };
 
-const BentoGrid = () => {
+const BentoGrid = ({ items }: { items: BentoGridItemProps[] }) => {
   return (
     <div className="grid md:auto-rows-[20rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-8 py-12">
       {items.map((item, index) => (
@@ -128,3 +105,4 @@ const BentoGrid = () => {
 };
 
 export default BentoGrid;
+export type { BentoGridItemProps };

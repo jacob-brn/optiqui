@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { motion, cubicBezier } from "framer-motion";
+import { motion, cubicBezier } from "motion/react";
 
 type highlightLayerType = {
   opacity: number;
