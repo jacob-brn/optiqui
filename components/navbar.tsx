@@ -8,6 +8,7 @@ import { SheetLeftbar } from "./leftbar";
 import { ROUTES, getRecurrsiveAllLinks } from "@/lib/routes-config";
 import { SheetClose } from "@/components/ui/sheet";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import GithubStarsButton from "./GithubStarsButton";
 
 const page_routes = ROUTES.filter(
   (route) => route.title.toLowerCase() === "components"
@@ -41,6 +42,8 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
+            <GithubStarsButton />
+            <Search />
             <div className="flex ml-2.5 sm:ml-0">
               <Link
                 href="https://github.com/jacob-brn/optiqui"
@@ -59,7 +62,6 @@ export function Navbar() {
               </Link>
               <ModeToggle />
             </div>
-            <Search />
           </div>
         </div>
       </div>
