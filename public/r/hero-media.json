@@ -4,8 +4,10 @@
   "type": "registry:component",
   "title": "Hero Media",
   "description": "Customizable component for Hero Section capabale of displaying images or videos in a modal.",
+  "dependencies": [
+    "motion"
+  ],
   "registryDependencies": [
-    "motion",
     "dialog"
   ],
   "files": [

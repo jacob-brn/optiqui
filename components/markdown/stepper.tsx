@@ -11,7 +11,7 @@ export function Stepper({ children }: PropsWithChildren) {
         return (
           <div
             className={cn(
-              "border-l pl-9 ml-3 relative",
+              "border-l pl-9 ml-3 relative [&_p]:!my-0",
               clsx({
                 "pb-5 ": index < length - 1,
               })

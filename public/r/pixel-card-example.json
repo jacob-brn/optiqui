@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixel-card-example",
+  "type": "registry:example",
+  "title": "Pixel Card Example",
+  "description": "Card that reveals pixelized background on hover",
+  "registryDependencies": [
+    "https://optiqui.com/r/pixel-card.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/pixel-card-example.tsx",
+      "content": "import PixelCard from \"../ui/PixelCard\";\r\n\r\nexport default function PixelCardExample() {\r\n  return (\r\n    <div>\r\n      <PixelCard\r\n        text=\"Magical Card\"\r\n        icon={\r\n          <svg\r\n            xmlns=\"http://www.w3.org/2000/svg\"\r\n            width=\"24\"\r\n            height=\"24\"\r\n            viewBox=\"0 0 24 24\"\r\n            fill=\"none\"\r\n            stroke=\"currentColor\"\r\n            strokeWidth=\"2\"\r\n            strokeLinecap=\"round\"\r\n            strokeLinejoin=\"round\"\r\n            className=\"w-8 h-8\"\r\n          >\r\n            <path d=\"m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72\" />\r\n            <path d=\"m14 7 3 3\" />\r\n            <path d=\"M5 6v4\" />\r\n            <path d=\"M19 14v4\" />\r\n            <path d=\"M10 2v2\" />\r\n            <path d=\"M7 8H3\" />\r\n            <path d=\"M21 16h-4\" />\r\n            <path d=\"M11 3H9\" />\r\n          </svg>\r\n        }\r\n        className=\"w-full h-24 rounded-xl border border-border\"\r\n        canvasProps={{\r\n          gap: 0,\r\n          colors: \"#D2042D, #FF0033, #C21807, #E30B5C, #FF4D4D, #B22222\",\r\n        }}\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

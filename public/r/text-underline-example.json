@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-underline-example",
+  "type": "registry:example",
+  "title": "Text Underline Example",
+  "description": "A text animation with animated underline",
+  "registryDependencies": [
+    "https://optiqui.com/r/text-underline.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/text-underline-example.tsx",
+      "content": "import TextUnderline from \"../ui/TextUnderline\";\r\n\r\nexport default function TextUnderlineExample() {\r\n  return (\r\n    <div className=\"text-2xl lg:text-6xl text-center text-balance text-foreground\">\r\n      Cool <TextUnderline text=\"underline\" /> effect\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

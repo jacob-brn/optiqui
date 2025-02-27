@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-noise-example",
+  "type": "registry:example",
+  "title": "Text Noise Example",
+  "description": "A text animation with noise overlay",
+  "registryDependencies": [
+    "https://optiqui.com/r/text-noise.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/text-noise-example.tsx",
+      "content": "import TextNoise from \"../ui/TextNoise\";\r\n\r\nexport default function TextNoiseExample() {\r\n  return (\r\n    <div className=\"text-2xl lg:text-6xl text-center text-balance text-foreground\">\r\n      Components your\r\n      <br />\r\n      <TextNoise\r\n        text=\"website\"\r\n        className=\"bg-gradient-to-t from-muted to-primary\"\r\n      />{\" \"}\r\n      deserves\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

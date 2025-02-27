@@ -75,48 +75,48 @@ export const ROUTES: EachRoute[] = [
       },
     ],
   },
-  {
-    title: "Headers",
-    href: "/headers",
-    noLink: true,
-    items: [{ title: "Header 1", href: "/1" }],
-  },
-  {
-    title: "Hero Sections",
-    href: "/hero-sections",
-    noLink: true,
-    items: [{ title: "Hero Section 1", href: "/1" }],
-  },
-  {
-    title: "Features Sectionts",
-    href: "/features",
-    noLink: true,
-    items: [{ title: "Features Section 1", href: "/1" }],
-  },
-  {
-    title: "Trusted By Sections",
-    href: "/trusted-by",
-    noLink: true,
-    items: [{ title: "Trusted By Section 1", href: "/1" }],
-  },
-  {
-    title: "Pricing Sections",
-    href: "/pricing",
-    noLink: true,
-    items: [{ title: "Pricing Section 1", href: "/1" }],
-  },
-  {
-    title: "FAQs Sections",
-    href: "/faqs",
-    noLink: true,
-    items: [{ title: "FAQ Section 1", href: "/1" }],
-  },
-  {
-    title: "Footers",
-    href: "/footers",
-    noLink: true,
-    items: [{ title: "Footer 1", href: "/1" }],
-  },
+  // {
+  //   title: "Headers",
+  //   href: "/headers",
+  //   noLink: true,
+  //   items: [{ title: "Header 1", href: "/1" }],
+  // },
+  // {
+  //   title: "Hero Sections",
+  //   href: "/hero-sections",
+  //   noLink: true,
+  //   items: [{ title: "Hero Section 1", href: "/1" }],
+  // },
+  // {
+  //   title: "Features Sectionts",
+  //   href: "/features",
+  //   noLink: true,
+  //   items: [{ title: "Features Section 1", href: "/1" }],
+  // },
+  // {
+  //   title: "Trusted By Sections",
+  //   href: "/trusted-by",
+  //   noLink: true,
+  //   items: [{ title: "Trusted By Section 1", href: "/1" }],
+  // },
+  // {
+  //   title: "Pricing Sections",
+  //   href: "/pricing",
+  //   noLink: true,
+  //   items: [{ title: "Pricing Section 1", href: "/1" }],
+  // },
+  // {
+  //   title: "FAQs Sections",
+  //   href: "/faqs",
+  //   noLink: true,
+  //   items: [{ title: "FAQ Section 1", href: "/1" }],
+  // },
+  // {
+  //   title: "Footers",
+  //   href: "/footers",
+  //   noLink: true,
+  //   items: [{ title: "Footer 1", href: "/1" }],
+  // },
 ];
 
 type Page = { title: string; href: string };

@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Text Scan",
   "description": "Text scan animation on hover",
-  "registryDependencies": [
+  "dependencies": [
     "motion"
   ],
   "files": [

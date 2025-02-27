@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grid-example",
+  "type": "registry:example",
+  "title": "Bento Grid Example",
+  "description": "Bento grid with eye catching grainy gradient",
+  "registryDependencies": [
+    "https://optiqui.com/r/bento-grid.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/bento-grid-example.tsx",
+      "content": "import BentoGrid from \"../ui/BentoGrid\";\r\n\r\nexport default function BentoGridExample() {\r\n  return (\r\n    <div>\r\n      <BentoGrid\r\n        className=\"md:col-span-1\"\r\n        items={[\r\n          {\r\n            title: \"Item 1\",\r\n            description:\r\n              \"Item 1 is a beautiful and unique item. It has pink grainy gradient.\",\r\n            gradient: \"bg-gradient-to-br from-purple-500 to-pink-500\",\r\n            image:\r\n              \"https://images.unsplash.com/photo-1555988776-c3f17e5cb789?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\r\n          },\r\n          {\r\n            title: \"Item 2\",\r\n            description:\r\n              \"Item 2 is a beautiful and unique item. It has blue grainy gradient.\",\r\n            gradient: \"bg-gradient-to-br from-blue-500 to-teal-500\",\r\n            image:\r\n              \"https://images.unsplash.com/photo-1468581264429-2548ef9eb732?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\r\n          },\r\n          {\r\n            title: \"Item 3\",\r\n            description:\r\n              \"Item 3 is a beautiful and unique item. It has green grainy gradient.\",\r\n            gradient: \"bg-gradient-to-br from-green-500 to-emerald-500\",\r\n            image:\r\n              \"https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\r\n            className: \"md:row-span-2\",\r\n          },\r\n          {\r\n            title: \"Item 4\",\r\n            description:\r\n              \"Item 4 is a beautiful and unique item. It has red grainy gradient.\",\r\n            gradient: \"bg-gradient-to-br from-rose-500 to-red-500\",\r\n            image:\r\n              \"https://images.unsplash.com/photo-1723599033885-8180ab35791f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\r\n            className: \"md:col-span-2\",\r\n          },\r\n        ]}\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

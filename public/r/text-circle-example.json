@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-circle-example",
+  "type": "registry:example",
+  "title": "Text Circle Example",
+  "description": "A text animation with animated circle outline",
+  "registryDependencies": [
+    "https://optiqui.com/r/text-circle.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/text-circle-example.tsx",
+      "content": "import TextCircle from \"../ui/TextCircle\";\r\n\r\nexport default function TextCircleExample() {\r\n  return (\r\n    <div className=\"text-2xl lg:text-6xl text-center text-balance text-foreground\">\r\n      Cool <TextCircle text=\"circle\" /> outline effect\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

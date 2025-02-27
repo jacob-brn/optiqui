@@ -5,269 +5,42 @@ description: Customizable component for Hero Section capabale of displaying imag
 
 {" "}
 
-<Tabs defaultValue="example" className="pt-5 pb-1">
-  <TabsList>
-    <TabsTrigger value="example">Example</TabsTrigger>
-    <TabsTrigger value="code">Code</TabsTrigger>
-  </TabsList>
-  <TabsContent value="example">
-        <ComponentPreview className="my-5  px-8 w-full h-min flex flex-row gap-x-2 justify-end items-center relative">
-            <HeroMedia
-            type="video"
-            iframe={false}
-            className="border border-border"
-            thumbnailUrl="/heromedia-thumbnail.jpg"
-            videoUrl="/optiq-ui-saas-template.mp4"
-            buttonTitle="See video"
-            buttonDescription="Just click play button"
-          />
-        </ComponentPreview>
-    </TabsContent>
-  <TabsContent value="code">
-    ```typescript
-    // DemoPage.tsx
-    import HeroMedia from "@/components/HeroMedia";
-    
-    export default function DemoPage() {
-      return (
-        <div className="min-h-screen max-w-7xl w-full mx-auto flex items-center justify-center flex-col">
-          <HeroMedia
-            type="video"
-            iframe={false}
-            className="border border-border"
-            thumbnailUrl="/footer-1.png"
-            videoUrl="/optiq-ui-saas-template.mp4"
-            buttonTitle="See video"
-            buttonDescription="Just click play button"
-          />
-        </div>
-      );
-    }
-    ```
-    </TabsContent>
+<ComponentPreview name="hero-media-example" />
 
-</Tabs>
+## Installation
 
-## Installation Steps
+<Tabs defaultValue="cli">
 
-1. **Install Dependencies**:
-   Install the required dependencies using npm:
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-   ```bash
-   npm install framer-motion
-   ```
-
-   Add required `shadcn/ui` components:
-
-   ```bash
-   npx shadcn@latest add dialog
-   ```
-
-2. **Copy this Component**
-
-```typescript:HeroMedia.tsx showLineNumbers
-"use client";
-import { cn } from "@/lib/utils";
-import { Play, X } from "lucide-react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogHeader,
-  DialogOverlay,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-
-type HeroMediaProps =
-  | {
-      type: "image";
-      iframe?: never;
-      thumbnailUrl: string;
-      videoUrl?: never;
-      className?: string;
-      alt?: string;
-      buttonTitle?: never;
-      buttonDescription?: never;
-      PopoverTitle?: never;
-      PopoverDescription?: never;
-    }
-  | {
-      type: "video";
-      iframe?: boolean;
-      thumbnailUrl: string;
-      videoUrl: string;
-      className?: string;
-      alt?: string;
-      buttonTitle: string;
-      buttonDescription: string;
-      PopoverTitle?: string;
-      PopoverDescription?: string;
-    };
-
-const VideoPopover = ({
-  children,
-  title,
-  description,
-  iframe = true,
-  videoUrl,
-}: {
-  children: React.ReactNode;
-  title: string;
-  description: string;
-  iframe?: boolean;
-  videoUrl: string;
-}): JSX.Element => {
-  return (
-    <Dialog>
-      <DialogOverlay className="bg-transparent backdrop-blur-md bg-gradient-to-br from-background/30 to-secondary/30" />
-      <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="w-full max-w-4xl aspect-video grid gap-y-6 bg-transparent border-none [&_button]:hidden">
-        {/* delete this: "[&_button]:hidden" to show exit buttons */}
-        <DialogClose className="w-min h-min bg-background/90 rounded-full p-1 border border-border">
-          <X className="w-6 h-6" />
-        </DialogClose>
-        <DialogHeader className="text-left">
-          <DialogTitle className="text-2xl text-gray-50 font-semibold">
-            {title}
-          </DialogTitle>
-          <DialogDescription className="text-base text-muted-foreground">
-            {description}
-          </DialogDescription>
-        </DialogHeader>
-        {iframe ? (
-          <iframe
-            src={videoUrl}
-            allowFullScreen
-            loading="lazy"
-            className="w-full aspect-video rounded-lg"
-          />
-        ) : (
-          <video
-            src={videoUrl}
-            controls
-            autoPlay
-            className="w-full aspect-video rounded-lg"
-          />
-        )}
-      </DialogContent>
-    </Dialog>
-  );
-};
-
-const HeroMedia = ({
-  type,
-  iframe,
-  thumbnailUrl,
-  videoUrl,
-  className,
-  alt = "Image showcasing product",
-  buttonTitle,
-  buttonDescription,
-  PopoverTitle,
-  PopoverDescription,
-}: HeroMediaProps): JSX.Element => {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-
-  return (
-    <div className="relative">
-      {type === "image" ? (
-        <Image
-          src={thumbnailUrl}
-          alt={alt}
-          className={cn("rounded-xl relative z-10", className)}
-          width={9999}
-          height={9999}
-          quality={100}
-        />
-      ) : (
-        <div className="grid items-center justify-center">
-          <Image
-            src={thumbnailUrl}
-            alt={alt}
-            className={cn("rounded-xl relative z-10", className)}
-            width={9999}
-            height={9999}
-            quality={100}
-          />
-          <VideoPopover
-            title={PopoverTitle || ""}
-            description={PopoverDescription || ""}
-            videoUrl={videoUrl}
-            iframe={iframe}
-          >
-            <motion.div
-              className="absolute inset-0 z-10 flex items-center justify-center cursor-pointer"
-              initial={false}
-            >
-              <div
-                className="bg-background/80 border border-border rounded-full flex items-center justify-center group cursor-pointer"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <div className="flex items-center p-4">
-                  <Play
-                    className="w-9 h-9 text-foreground"
-                    fill="currentColor"
-                    stroke="currentColor"
-                  />
-                  <AnimatePresence mode="wait">
-                    {isHovered && (
-                      <motion.div
-                        className="overflow-hidden"
-                        initial={{ width: 0, opacity: 0 }}
-                        animate={{
-                          width: "auto",
-                          opacity: 1,
-                          transition: {
-                            width: {
-                              type: "spring",
-                              stiffness: 150,
-                              damping: 18,
-                            },
-                            opacity: { duration: 0.2 },
-                          },
-                        }}
-                        exit={{
-                          width: 0,
-                          opacity: 0,
-                          transition: {
-                            width: {
-                              type: "spring",
-                              stiffness: 150,
-                              damping: 18,
-                            },
-                            opacity: { duration: 0.2, delay: 0.1 },
-                          },
-                        }}
-                      >
-                        <div className="grid grid-flow-row auto-rows-max ml-3 whitespace-nowrap pr-3 select-none text-left">
-                          <span className="text-sm font-medium text-foreground">
-                            {buttonTitle}
-                          </span>
-                          <span className="text-xs text-muted-foreground">
-                            {buttonDescription}
-                          </span>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </div>
-            </motion.div>
-          </VideoPopover>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default HeroMedia;
+```bash
+npx shadcn@latest add "https://optiqui.com/r/hero-media"
 ```
+
+</TabsContent>
+<TabsContent value="manual" className="mt-8">
+
+<Stepper>
+<div>
+**Install required dependencies**
+```bash
+npm install motion
+```
+```bash
+npx shadcn@latest add dialog
+```
+</div>
+<div>
+**Copy and paste the following code into your project.**
+<ComponentSource name="hero-media" />
+</div>
+</Stepper>
+</TabsContent>
+</Tabs>
 
 ## HeroMediaProps
 

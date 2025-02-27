@@ -9,81 +9,83 @@
   max-width: 1600px;
 }
 
-.keyword {
-  color: #e11d48;
-  /* Red */
+[data-theme="light"] {
+  display: block;
 }
 
-.function {
-  color: #0ea5e9;
-  /* Sky Blue */
+[data-theme="dark"] {
+  display: none;
 }
 
-.punctuation {
-  color: #64748b;
-  /* Slate Gray */
+.dark [data-theme="light"] {
+  display: none;
 }
 
-.comment {
-  color: #94a3b8;
-  /* Muted Slate Gray */
+.dark [data-theme="dark"] {
+  display: block;
 }
 
-.string,
-.constant,
-.annotation,
-.boolean,
-.number {
-  color: #f59e0b;
-  /* Amber */
+[data-rehype-pretty-code-figure] {
+  @apply relative text-white;
 }
 
-.tag {
-  color: #ec4899;
-  /* Pink */
+[data-rehype-pretty-code-figure] code {
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0;
+  counter-reset: line;
+  box-decoration-break: clone;
 }
 
-.attr-name {
-  color: #16a34a;
-  /* Green */
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply px-4 min-h-[1rem] py-0.5 w-full inline-block;
 }
 
-.attr-value {
-  color: #f97316;
-  /* Orange */
+[data-rehype-pretty-code-figure] [data-line-numbers] [data-line] {
+  @apply px-2;
 }
 
-/* Dark Mode */
-.dark .keyword {
-  color: #fb7185;
-  /* Light Red */
+[data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
+  @apply text-zinc-50/40 text-xs;
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.8rem;
+  margin-right: 1.4rem;
+  text-align: right;
 }
 
-.dark .function {
-  color: #38bdf8;
-  /* Sky Blue */
+[data-rehype-pretty-code-figure] .line--highlighted {
+  @apply bg-zinc-700/50;
 }
 
-.dark .string,
-.dark .constant,
-.dark .annotation,
-.dark .boolean,
-.dark .number {
-  color: #fbbf24;
-  /* Amber */
+[data-rehype-pretty-code-figure] .line-highlighted span {
+  @apply relative;
 }
 
-.dark .tag {
-  color: #fb7185;
-  /* Soft Pink */
+[data-rehype-pretty-code-figure] .word--highlighted {
+  @apply rounded-md bg-zinc-700/50 border-zinc-700/70 p-1;
 }
 
-.dark .attr-name {
-  color: #22c55e;
-  /* Green */
+.dark [data-rehype-pretty-code-figure] .word--highlighted {
+  @apply bg-zinc-900;
 }
 
-.dark .attr-value {
-  color: #fb923c;
-  /* Soft Orange */
+[data-rehype-pretty-code-title] {
+  @apply mt-2 pt-6 px-4 text-sm font-medium text-foreground;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  @apply mt-2;
+}
+
+.mdx > .steps:first-child > h3:first-child {
+  @apply mt-0;
+}
+
+.steps > h3 {
+  @apply mt-8 mb-4 text-base font-semibold;
+}
+
+.prose
+  :where(figure):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply !my-0;
 }

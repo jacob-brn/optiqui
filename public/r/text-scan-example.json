@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-scan-example",
+  "type": "registry:example",
+  "title": "Text Scan Example",
+  "description": "Text scan animation on hover",
+  "registryDependencies": [
+    "https://optiqui.com/r/text-scan.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/text-scan-example.tsx",
+      "content": "import TextScan from \"../ui/TextScan\";\r\n\r\nexport default function TextScanExample() {\r\n  return (\r\n    <div className=\"w-full flex items-center justify-center py-12 px-4\">\r\n      <TextScan\r\n        className=\"border py-2\"\r\n        text={\r\n          <>\r\n            <div>Build $10k website</div>\r\n            <div>on $0 budget.</div>\r\n          </>\r\n        }\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

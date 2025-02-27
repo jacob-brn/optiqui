@@ -3,178 +3,39 @@ title: Sliding Badge
 description: Animated Badge with messages sliding from left to right
 ---
 
-{" "}
+<ComponentPreview name="sliding-badge-example" className="not-prose" />
 
-<Tabs defaultValue="example" className="pt-5 pb-1">
-  <TabsList>
-    <TabsTrigger value="example">Example</TabsTrigger>
-    <TabsTrigger value="code">Code</TabsTrigger>
-  </TabsList>
-  <TabsContent value="example">
-<ComponentPreview className="my-5 grid items-center justify-center py-24">
-    <SlidingBadge
-      messages={[
-        {
-          emoji: "❤️",
-          text: (
-            <>
-              Follow me on{" "}
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 512 512"
-                width={24}
-                height={24}
-                class="ml-1 w-3 h-3"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
-              </svg>
-            </>
-          ),
-          link: "https://x.com/jacob_brn",
-        },
-        {
-          emoji: "✨",
-          text: <>Star on Github</>,
-          link: "https://github.com/jacob-brn/optiqui",
-        },
-      ]}
-    />
-  </ComponentPreview>
-    </TabsContent>
-  <TabsContent value="code">
-    ````typescript
-    // DemoPage.tsx
+## Installation
 
-    import SlidingBadge from "@/components/SlidingBadge";
+<Tabs defaultValue="cli">
 
-    export default function DemoPage() {
-      const messages = [
-        {
-          emoji: "❤️",
-          text: (
-            <>
-              Follow me on{" "}
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 512 512"
-                width={24}
-                height={24}
-                className="ml-1 w-3 h-3"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
-              </svg>
-            </>
-          ),
-          link: "https://x.com/jacob_brn",
-        },
-        {
-          emoji: "✨",
-          text: <>Star on Github</>,
-          link: "https://github.com/jacob-brn/optiqui",
-        },
-      ];
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-      return (
-        <>
-          <SlidingBadge messages={messages} />
-        </>
-      );
-    }
-
-````
-</TabsContent>
-
-</Tabs>
-
-## Installation Steps
-
-1. **Install Dependencies**:
-  Install the required dependencies using npm:
-
-  ```bash
-  npm install framer-motion react-icons
-````
-
-2. **Copy this Component**
-
-```typescript:SlidingBadge.tsx showLineNumbers
-"use client";
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-
-interface BadgeMessagesProps {
-  emoji: string;
-  text: JSX.Element;
-  link: string;
-}
-
-const SlidingBadge = ({
-  messages,
-  className,
-}: {
-  messages: BadgeMessagesProps[];
-  className?: string;
-}): JSX.Element => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const SLIDING_INTERVAL = 3000;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (currentIndex < messages.length - 1)
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      else setCurrentIndex(0);
-    }, SLIDING_INTERVAL);
-    return () => clearInterval(interval);
-  }, [currentIndex]);
-
-  return (
-    <Link href={messages[currentIndex].link} target="_blank">
-      <motion.div
-        className={cn(
-          "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs rounded-full overflow-hidden",
-          className
-        )}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ x: "-100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "100%", opacity: 0 }}
-            transition={{
-              ease: "easeInOut",
-              type: "spring",
-              stiffness: 100,
-              damping: 20,
-            }}
-            className="flex items-center"
-          >
-            {messages[currentIndex].emoji}
-            <div
-              data-orientation="vertical"
-              role="none"
-              className="shrink-0 bg-border w-px mx-2 h-4"
-            />
-            {messages[currentIndex].text}
-            <ChevronRight className="ml-1 h-4 w-4 text-muted-foreground" />
-          </motion.div>
-        </AnimatePresence>
-      </motion.div>
-    </Link>
-  );
-};
-
-export default SlidingBadge;
+```bash
+npx shadcn@latest add "https://optiqui.com/r/sliding-badge"
 ```
+
+</TabsContent>
+<TabsContent value="manual" className="mt-8">
+
+<Stepper>
+<div>
+ **Install required dependencies**
+ ```bash
+npm install motion
+ ```
+</div>
+<div>
+**Copy and paste the following code into your project.**
+<ComponentSource name="sliding-badge" />
+</div>
+</Stepper>
+</TabsContent>
+</Tabs>
 
 ## Props
 

@@ -24,7 +24,7 @@ export const ui: Registry["items"] = [
     type: "registry:component",
     title: "Text Circle",
     description: "A text animation with animated circle outline",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/TextCircle.tsx",
@@ -37,7 +37,7 @@ export const ui: Registry["items"] = [
     type: "registry:component",
     title: "Text Underline",
     description: "A text animation with animated underline",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/TextUnderline.tsx",
@@ -50,7 +50,7 @@ export const ui: Registry["items"] = [
     type: "registry:component",
     title: "Text Highlight",
     description: "A text animation with marker-like highlighting",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/TextHighlight.tsx",
@@ -63,7 +63,7 @@ export const ui: Registry["items"] = [
     type: "registry:component",
     title: "Text Scan",
     description: "Text scan animation on hover",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/TextScan.tsx",
@@ -81,7 +81,7 @@ export const ui: Registry["items"] = [
     type: "registry:component",
     title: "Sliding Badge",
     description: "Animated Badge with messages sliding from left to right",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/SlidingBadge.tsx",
@@ -94,7 +94,7 @@ export const ui: Registry["items"] = [
     type: "registry:component",
     title: "Pixel Card",
     description: "Card that reveals pixelized background on hover",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/PixelCard.tsx",
@@ -112,7 +112,7 @@ export const ui: Registry["items"] = [
     type: "registry:component",
     title: "Rays",
     description: "Light rays effect, perfect for drawing attention",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/Rays.tsx",
@@ -126,7 +126,8 @@ export const ui: Registry["items"] = [
     title: "Hero Media",
     description:
       "Customizable component for Hero Section capabale of displaying images or videos in a modal.",
-    registryDependencies: ["motion", "dialog"],
+    registryDependencies: ["dialog"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/HeroMedia.tsx",
@@ -140,7 +141,7 @@ export const ui: Registry["items"] = [
     title: "Text Cubic",
     description:
       "Text animation with animated letters looking like rubik's cube.",
-    registryDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "registry/ui/TextCubic.tsx",

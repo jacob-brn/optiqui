@@ -6,6 +6,7 @@ import { registryItemSchema, type Registry } from "shadcn/registry";
 import { z } from "zod";
 
 import { ui } from "../registry/registry-ui";
+import { examples } from "../registry/registry-example";
 
 const DEPRECATED_ITEMS = [""];
 
@@ -32,6 +33,7 @@ const registry = {
         files: [],
       },
       ...ui,
+      ...examples,
     ].filter((item) => {
       return !DEPRECATED_ITEMS.includes(item.name);
     })

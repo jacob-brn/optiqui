@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Rays",
   "description": "Light rays effect, perfect for drawing attention",
-  "registryDependencies": [
+  "dependencies": [
     "motion"
   ],
   "files": [

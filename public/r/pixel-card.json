@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Pixel Card",
   "description": "Card that reveals pixelized background on hover",
-  "registryDependencies": [
+  "dependencies": [
     "motion"
   ],
   "files": [

@@ -19,11 +19,11 @@ const TextCircle = ({
 
   return (
     <span className={cn("relative inline-block", className)}>
-      {text}
+      <span className="z-[1]">{text}</span>
       <motion.svg
         viewBox="0 0 390 167"
         className={
-          "absolute top-[-6px] left-[-6px] pointer-events-none overflow-visible w-[calc(100%+12px)] h-[calc(100%+12px)] z-[-1]"
+          "absolute top-[-6px] left-[-6px] pointer-events-none overflow-visible w-[calc(100%+12px)] h-[calc(100%+12px)] z-[0]"
         }
         preserveAspectRatio="none"
         initial="hidden"

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-highlight-example",
+  "type": "registry:example",
+  "title": "Text Highlight Example",
+  "description": "A text animation with marker-like highlighting",
+  "registryDependencies": [
+    "https://optiqui.com/r/text-highlight.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/text-highlight-example.tsx",
+      "content": "import TextHighlight from \"../ui/TextHighlight\";\r\n\r\nexport default function TextHighlightExample() {\r\n  return (\r\n    <div className=\"text-2xl lg:text-6xl text-center text-balance text-foreground\">\r\n      Cool <TextHighlight text=\"highlight\" /> effect\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

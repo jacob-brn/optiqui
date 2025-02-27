@@ -19,7 +19,9 @@ export default function DocsLayout({
         <Navbar />
         <div className="w-full container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
           <Leftbar key="leftbar" />
-          <div className="">{children}</div>
+          <div className="w-full md:col-span-full xl:col-span-1">
+            {children}
+          </div>
         </div>
       </ThemeProvider>
     </>

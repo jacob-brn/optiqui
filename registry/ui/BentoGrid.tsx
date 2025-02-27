@@ -50,7 +50,7 @@ const BentoGridItem = ({
       <div className={`relative h-full w-full p-6 flex flex-col`}>
         <div
           className={cn(
-            "z-[-1] pointer-events-none absolute inset-0 transition-all duration-500",
+            "z-0 pointer-events-none absolute inset-0 transition-all duration-500",
             gradient
           )}
         />
@@ -68,12 +68,12 @@ const BentoGridItem = ({
             />
           </div>
         </div>
-        <div className="group transition-all duration-300 group-hover:scale-90">
+        <div className="group transition-all duration-300 group-hover:scale-90 z-[1]">
           <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
           <p className="text-sm text-white/80">{description}</p>
         </div>
       </div>
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+      <div className="z-[2] absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
         <span className="text-white text-lg font-semibold flex flex-row items-center justify-center gap-x-1 transition-colors duration-300">
           Learn More
           <div className="relative overflow-hidden w-5 h-5 z-10 flex items-center justify-center text-2xl">
@@ -90,9 +90,20 @@ const BentoGridItem = ({
   );
 };
 
-const BentoGrid = ({ items }: { items: BentoGridItemProps[] }) => {
+const BentoGrid = ({
+  items,
+  className,
+}: {
+  items: BentoGridItemProps[];
+  className?: string;
+}) => {
   return (
-    <div className="grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-8 py-12">
+    <div
+      className={cn(
+        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-8 py-12",
+        className
+      )}
+    >
       {items.map((item, index) => (
         <BentoGridItem
           key={index}

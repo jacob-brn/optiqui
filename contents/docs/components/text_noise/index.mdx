@@ -3,65 +3,59 @@ title: Text Noise
 description: A text animation with noise overlay
 ---
 
-<Tabs defaultValue="example" className="pt-5 pb-1">
-  <TabsList>
-    <TabsTrigger value="example">Example</TabsTrigger>
-    <TabsTrigger value="code">Code</TabsTrigger>
-  </TabsList>
-  <TabsContent value="example">
-        <ComponentPreview className="mt-5 w-full h-full flex justify-center items-center text-2xl lg:text-6xl text-center text-balance">
-            Components your<br/>
-            <TextNoise text="website" className="bg-gradient-to-t from-muted to-primary" /> deserves
-        </ComponentPreview>
-    </TabsContent>
-  <TabsContent value="code">
-    ```typescript
-    // DemoPage.tsx
-    import TextNoise from "@/components/TextNoise";
+<ComponentPreview name="text-noise-example" className="not-prose" />
 
-    export default function DemoPage() {
-      return (
-        <div className="text-2xl lg:text-6xl text-center text-balance text-foreground">
-          Components your<br/>
-          <TextNoise text="website" className="bg-gradient-to-t from-muted to-primary" /> deserves
-        </div>
-      );
-    }
-    ```
-    </TabsContent>
+## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://optiqui.com/r/text-noise"
+```
+
+</TabsContent>
+<TabsContent value="manual" className="mt-8">
+
+<Stepper>
+<div>
+**Download this <a href="/noise.gif" download>noise.gif</a>** and copy it into your /public directory
+</div>
+<div>
+**Copy and paste the following code into your project.**
+<ComponentSource name="text-noise" />
+</div>
+</Stepper>
+</TabsContent>
 </Tabs>
 
-## Installation Steps
+## Props
 
-1. **Download this <a href="/noise.gif" download>noise.gif</a>**
-
-2. **Copy this Component**
-
-```typescript:TextNoise.tsx showLineNumbers
-import { cn } from "@/lib/utils";
-
-const TextNoise = ({
-  text,
-  className,
-}: {
-  text: string;
-  className?: string;
-}): JSX.Element => {
-  return (
-    <span
-      className={cn(
-        "bg-background mt-3 relative rounded-md w-fit inline-block px-1.5 py-0.5 border",
-        "before:absolute before:top-0 before:left-0 before:w-full before:h-full",
-        "before:content-[''] before:opacity-[0.1] before:z-10 before:pointer-events-none",
-        "before:bg-[url('/noise.gif')]",
-        className
-      )}
-    >
-      <span>{text}</span>
-    </span>
-  );
-};
-
-export default TextNoise;
-```
+<div className="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Prop</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>text</td>
+        <td>string</td>
+        <td>text for noise overlay</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>additional classNames</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

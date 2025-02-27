@@ -31,7 +31,7 @@ export function Navbar() {
         <div className="flex items-center gap-5">
           <SheetLeftbar />
           <div className="flex items-center gap-6">
-            <div className="sm:flex hidden">
+            <div className="lg:flex hidden">
               <Logo />
             </div>
             <div className="lg:flex hidden items-center gap-4 text-sm font-medium text-muted-foreground">
@@ -40,28 +40,28 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <GithubStarsButton />
+        <div className="flex items-center gap-2">
+          <GithubStarsButton />
+          <div className="md:flex hidden">
             <Search />
-            <div className="flex ml-2.5 sm:ml-0">
-              <Link
-                href="https://github.com/jacob-brn/optiqui"
-                className={buttonVariants({ variant: "ghost", size: "icon" })}
-              >
-                <FaGithub className="h-[1.1rem] w-[1.1rem]" />
-              </Link>
-              <Link
-                href="https://x.com/jacob_brn"
-                className={buttonVariants({
-                  variant: "ghost",
-                  size: "icon",
-                })}
-              >
-                <FaXTwitter className="h-[1.1rem] w-[1.1rem]" />
-              </Link>
-              <ModeToggle />
-            </div>
+          </div>
+          <div className="flex ml-2.5 sm:ml-0">
+            <Link
+              href="https://github.com/jacob-brn/optiqui"
+              className={buttonVariants({ variant: "ghost", size: "icon" })}
+            >
+              <FaGithub className="h-[1.1rem] w-[1.1rem]" />
+            </Link>
+            <Link
+              href="https://x.com/jacob_brn"
+              className={buttonVariants({
+                variant: "ghost",
+                size: "icon",
+              })}
+            >
+              <FaXTwitter className="h-[1.1rem] w-[1.1rem]" />
+            </Link>
+            <ModeToggle />
           </div>
         </div>
       </div>

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-cubic-example",
+  "type": "registry:example",
+  "title": "Text Cubic Example",
+  "description": "Text animation with animated letters looking like rubik's cube.",
+  "registryDependencies": [
+    "https://optiqui.com/r/text-cubic.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/text-cubic-example.tsx",
+      "content": "import TextCubic from \"../ui/TextCubic\";\r\n\r\nexport default function TextCubicExample() {\r\n  return (\r\n    <div>\r\n      <TextCubic\r\n        text=\"✨Cool Text Animation✨\"\r\n        className=\"cursor-pointer text-xl lg:text-4xl font-semibold text-center\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

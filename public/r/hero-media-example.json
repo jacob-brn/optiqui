@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-media-example",
+  "type": "registry:example",
+  "title": "Hero Media Example",
+  "description": "Customizable component for Hero Section capabale of displaying images or videos in a modal.",
+  "registryDependencies": [
+    "https://optiqui.com/r/hero-media.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/hero-media-example.tsx",
+      "content": "import HeroMedia from \"../ui/HeroMedia\";\r\n\r\nexport default function HeroMediaExample() {\r\n  return (\r\n    <div className=\"px-6 py-6\">\r\n      <HeroMedia\r\n        type=\"video\"\r\n        iframe={false}\r\n        className=\"border border-border\"\r\n        thumbnailUrl=\"/heromedia-thumbnail.jpg\"\r\n        videoUrl=\"/optiq-ui-saas-template.mp4\"\r\n        buttonTitle=\"See video\"\r\n        buttonDescription=\"Just click play button\"\r\n        PopoverTitle=\"Optiq UI SaaS Template\"\r\n        PopoverDescription=\"Coming out soon!\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -68,7 +68,7 @@ const PixelCard = ({ text, icon, canvasProps = {}, className }: CardProps) => {
     <>
       <motion.div
         className={cn(
-          "max-w-[300px] relative overflow-hidden cursor-pointer select-none",
+          "max-w-[200px] relative overflow-hidden cursor-pointer select-none",
           className
         )}
         onMouseEnter={() => setIsHovered(true)}

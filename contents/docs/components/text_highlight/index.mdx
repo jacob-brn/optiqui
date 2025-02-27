@@ -3,129 +3,39 @@ title: Text Highlight
 description: A text animation with marker-like highlighting
 ---
 
-<Tabs defaultValue="example" className="pt-5 pb-1">
-  <TabsList>
-    <TabsTrigger value="example">Example</TabsTrigger>
-    <TabsTrigger value="code">Code</TabsTrigger>
-  </TabsList>
-  <TabsContent value="example">
-        <ComponentPreview className="mt-5 w-full h-full flex justify-center items-center text-2xl lg:text-6xl text-center text-balance">
-            Cool <TextHighlight text="highlight"/> effect
-        </ComponentPreview>
-    </TabsContent>
-  <TabsContent value="code">
-    ```typescript
-    // DemoPage.tsx
-    import TextHighlight from "@/components/TextHighlight";
+<ComponentPreview name="text-highlight-example" className="not-prose" />
 
-    export default function DemoPage() {
-      return (
-        <div className="text-2xl lg:text-6xl text-center text-balance text-foreground">
-          Cool <TextHighlight text="highlight" /> effect
-        </div>
-      );
-    }
-    ```
-    </TabsContent>
+## Installation
 
-</Tabs>
+<Tabs defaultValue="cli">
 
-## Installation Steps
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-1. **Install Dependencies**:
-   Install the required dependencies using npm:
-
-   ```bash
-   npm install framer-motion
-   ```
-
-2. **Copy this Component**
-
-```typescript:TextUnderline.tsx showLineNumbers
-"use client";
-import { cn } from "@/lib/utils";
-import { motion, cubicBezier } from "framer-motion";
-
-type highlightLayerType = {
-  opacity: number;
-  rotate: number;
-  delay: number;
-  direction: number;
-};
-
-interface TextHighlightProps {
-  text: string;
-  customOverlays?: highlightLayerType[];
-  textClassName?: string;
-  highlightClassName?: string;
-  waitTillInView?: boolean;
-}
-
-const TextHighlight = ({
-  text,
-  customOverlays,
-  textClassName,
-  highlightClassName,
-  waitTillInView = true,
-}: TextHighlightProps): JSX.Element => {
-  const highlightDuration = 0.5;
-  const highlightLayers = customOverlays || [
-    { opacity: 0.5, rotate: 0, delay: 0, direction: 1 },
-    { opacity: 0.3, rotate: -0.7, delay: 0.4, direction: -1 },
-    { opacity: 0.4, rotate: 0.7, delay: 0.8, direction: 1 },
-  ];
-
-  const customEase = cubicBezier(0.25, 0.1, 0.25, 1);
-
-  return (
-    <span className="relative inline-block">
-      <span
-        className={cn(
-          "relative z-10 text-foreground dark:mix-blend-lighten",
-          textClassName
-        )}
-      >
-        {text}
-      </span>
-      <motion.span
-        transition={{ delay: 1 }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: waitTillInView }}
-      >
-        {highlightLayers.map((layer, index) => (
-          <motion.span
-            key={index}
-            className={cn("absolute inset-0 bg-primary", highlightClassName)}
-            style={{
-              originX: layer.direction > 0 ? 0 : 1,
-              originY: 1,
-              opacity: layer.opacity,
-            }}
-            variants={{
-              visible: {
-                scaleX: 1,
-                rotate: layer.rotate,
-              },
-              hidden: {
-                scaleX: 0,
-                rotate: 0,
-              },
-            }}
-            transition={{
-              duration: highlightDuration,
-              delay: layer.delay + highlightDuration,
-              ease: customEase,
-            }}
-          />
-        ))}
-      </motion.span>
-    </span>
-  );
-};
-
-export default TextHighlight;
+```bash
+npx shadcn@latest add "https://optiqui.com/r/text-highlight"
 ```
+
+</TabsContent>
+<TabsContent value="manual" className="mt-8">
+
+<Stepper>
+<div>
+ **Install required dependencies**
+ ```bash
+npm install motion
+ ```
+</div>
+<div>
+**Copy and paste the following code into your project.**
+<ComponentSource name="text-highlight" />
+</div>
+</Stepper>
+</TabsContent>
+</Tabs>
 
 ## highlightLayerType
 
