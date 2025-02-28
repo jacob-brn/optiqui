@@ -113,8 +113,11 @@ const prettyCode: Options = {
 };
 
 // can be used for other pages like blogs, Guides etc
-async function parseMdx<Frontmatter>(rawMdx: string) {
-  return await compileMDX<Frontmatter>({
+async function parseMdx<Frontmatter>(
+  rawMdx: string,
+  document?: { _meta?: { path?: string } }
+) {
+  const result = await compileMDX<Frontmatter>({
     source: rawMdx,
     options: {
       parseFrontmatter: true,
@@ -132,7 +135,6 @@ async function parseMdx<Frontmatter>(rawMdx: string) {
                   return;
                 }
                 if (codeEl.data?.meta) {
-                  // Extract event from meta and pass it down the tree.
                   const regex = /event="([^"]*)"/;
                   const match = codeEl.data?.meta.match(regex);
                   if (match) {
@@ -154,20 +156,16 @@ async function parseMdx<Frontmatter>(rawMdx: string) {
                 if (!("data-rehype-pretty-code-figure" in node.properties)) {
                   return;
                 }
-
                 const preElement = node.children.at(-1);
                 if (preElement.tagName !== "pre") {
                   return;
                 }
-
                 preElement.properties["__withMeta__"] =
                   node.children.at(0).tagName === "div";
                 preElement.properties["__rawString__"] = node.__rawString__;
-
                 if (node.__src__) {
                   preElement.properties["__src__"] = node.__src__;
                 }
-
                 if (node.__style__) {
                   preElement.properties["__style__"] = node.__style__;
                 }
@@ -180,6 +178,29 @@ async function parseMdx<Frontmatter>(rawMdx: string) {
     },
     components,
   });
+
+  // Extract metadata from frontmatter
+  const metadata = (result.frontmatter as Record<string, any>) || {};
+
+  return {
+    ...metadata,
+    image:
+      metadata.image ||
+      (process.env.NEXT_PUBLIC_APP_URL
+        ? `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURI(
+            metadata.title || ""
+          )}&description=${encodeURI(metadata.description || "")}`
+        : undefined),
+    slug: document?._meta?.path ? `/${document._meta.path}` : undefined,
+    slugAsParams: document?._meta?.path
+      ? document._meta.path.split("/").slice(1).join("/")
+      : undefined,
+    body: {
+      raw: rawMdx,
+      code: result.content,
+    },
+    ...result.frontmatter,
+  };
 }
 
 // logic for docs

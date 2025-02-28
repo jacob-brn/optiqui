@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Navbar } from "@/components/navbar";
 import Script from "next/script";
 import TextCircleExample from "@/registry/example/text-circle-example";
+import { Icons } from "@/components/icons";
 
 export default function Home() {
   return (
