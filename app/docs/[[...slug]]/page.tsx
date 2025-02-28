@@ -5,6 +5,7 @@ import { page_routes } from "@/lib/routes-config";
 import { notFound } from "next/navigation";
 import { getDocsForSlug } from "@/lib/markdown";
 import { Typography } from "@/components/typography";
+import { absoluteUrl } from "@/lib/utils";
 
 type PageProps = {
   params: { slug: string[] };
@@ -36,11 +37,37 @@ export default async function DocsPage({ params: { slug = [] } }: PageProps) {
 export async function generateMetadata({ params: { slug = [] } }: PageProps) {
   const pathName = slug.join("/");
   const res = await getDocsForSlug(pathName);
+
   if (!res) return null;
   const { description, title } = res;
+
+  const url = process.env.NEXT_PUBLIC_APP_URL;
+  const ogUrl = new URL(`${url}/og`);
+  ogUrl.searchParams.set("title", title);
+  ogUrl.searchParams.set("description", description);
+
   return {
     title: title,
     description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      type: "article",
+      url: absoluteUrl(pathName),
+      images: [
+        {
+          url: ogUrl.toString(),
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: [ogUrl.toString()],
+    },
   };
 }
 

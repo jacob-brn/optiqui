@@ -43,7 +43,6 @@ export function CodeBlockCommand({
 
     copyToClipboardWithMeta(command);
     setHasCopied(true);
-    console.log(command);
   }, [packageManager, tabs]);
 
   return (
