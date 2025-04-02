@@ -10,7 +10,7 @@ ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
 ENV NEXT_PUBLIC_MEASUREMENT_ID=${NEXT_PUBLIC_MEASUREMENT_ID}
 
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --force
 COPY . .
 
 # Debug: print env vars to confirm they're set (remove in production)
