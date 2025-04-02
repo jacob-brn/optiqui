@@ -40,7 +40,7 @@ export const Index: Record<string, any> = {
     name: "text-circle",
     description: "A text animation with animated circle outline",
     type: "registry:component",
-    registryDependencies: ["motion"],
+    registryDependencies: undefined,
     files: [{
       path: "registry/ui/TextCircle.tsx",
       type: "registry:component",
@@ -57,7 +57,7 @@ export const Index: Record<string, any> = {
     name: "text-underline",
     description: "A text animation with animated underline",
     type: "registry:component",
-    registryDependencies: ["motion"],
+    registryDependencies: undefined,
     files: [{
       path: "registry/ui/TextUnderline.tsx",
       type: "registry:component",
@@ -74,7 +74,7 @@ export const Index: Record<string, any> = {
     name: "text-highlight",
     description: "A text animation with marker-like highlighting",
     type: "registry:component",
-    registryDependencies: ["motion"],
+    registryDependencies: undefined,
     files: [{
       path: "registry/ui/TextHighlight.tsx",
       type: "registry:component",
@@ -184,7 +184,7 @@ export const Index: Record<string, any> = {
     name: "text-cubic",
     description: "Text animation with animated letters looking like rubik's cube.",
     type: "registry:component",
-    registryDependencies: ["motion"],
+    registryDependencies: undefined,
     files: [{
       path: "registry/ui/TextCubic.tsx",
       type: "registry:component",
@@ -209,6 +209,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/ui/BentoGrid.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "macbook": {
+    name: "macbook",
+    description: "Fully responsive Macbook made react and tailwindcss",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/ui/Macbook.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/Macbook.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -396,6 +413,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/pixel-card-example.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "macbook-example": {
+    name: "macbook-example",
+    description: "Fully responsive Macbook made react and tailwindcss",
+    type: "registry:example",
+    registryDependencies: ["https://optiqui.com/r/macbook.json"],
+    files: [{
+      path: "registry/example/macbook-example.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/macbook-example.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

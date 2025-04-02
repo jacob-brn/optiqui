@@ -22,7 +22,7 @@ export const ROUTES: EachRoute[] = [
     title: "Templates",
     href: "/templates",
     noLink: true,
-    items: [{ title: "SaaS", href: "/saas", badges: ["Soon", "Pro"] }],
+    items: [{ title: "SaaS", href: "/saas", badges: ["Pro"] }],
   },
   {
     title: "Components",
@@ -71,6 +71,11 @@ export const ROUTES: EachRoute[] = [
       {
         title: "Bento Grid",
         href: "/bento_grid",
+        badges: ["New"],
+      },
+      {
+        title: "Macbook",
+        href: "/macbook",
         badges: ["New"],
       },
     ],

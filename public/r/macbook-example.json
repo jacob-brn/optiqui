@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "macbook-example",
+  "type": "registry:example",
+  "title": "Macbook Example",
+  "description": "Fully responsive Macbook made react and tailwindcss",
+  "registryDependencies": [
+    "https://optiqui.com/r/macbook.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/macbook-example.tsx",
+      "content": "import Macbook from \"../ui/Macbook\";\r\n\r\nexport default function MacbookExample() {\r\n  return (\r\n    <Macbook>\r\n      <h3>Macbook</h3>\r\n    </Macbook>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

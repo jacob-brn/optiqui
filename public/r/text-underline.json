@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Text Underline",
   "description": "A text animation with animated underline",
-  "registryDependencies": [
+  "dependencies": [
     "motion"
   ],
   "files": [

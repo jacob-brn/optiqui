@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/theme-toggle";
-import { Zap } from "lucide-react";
+import { Eye, Zap } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Search from "./search";
@@ -72,7 +72,7 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-x-1">
-      <Zap className="size-5 sm:size-6 text-primary fill-current stroke-[1]" />
+      <Eye className="size-5 sm:size-6 text-primary mr-1" />
       <span className="text-lg sm:text-xl font-semibold select-none hover:cursor-pointer hover:text-muted-foreground transition-all">
         Optiq UI
       </span>

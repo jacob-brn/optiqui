@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Text Highlight",
   "description": "A text animation with marker-like highlighting",
-  "registryDependencies": [
+  "dependencies": [
     "motion"
   ],
   "files": [

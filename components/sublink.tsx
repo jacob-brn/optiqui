@@ -78,7 +78,7 @@ export default function SubLink({
               <div
                 className={cn(
                   "z-10 rounded-md bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none no-underline group-hover:no-underline mr-1.5",
-                  badge.toLowerCase() === "pro" && "bg-primary text-background",
+                  badge.toLowerCase() === "pro" && "bg-primary text-white",
                   badge.toLowerCase() === "soon" && "bg-muted text-foreground"
                 )}
                 key={index}

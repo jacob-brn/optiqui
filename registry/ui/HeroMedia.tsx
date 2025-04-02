@@ -106,7 +106,7 @@ const HeroMedia = ({
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (
-    <div className="relative">
+    <div className="relative h-full">
       {type === "image" ? (
         <Image
           src={thumbnailUrl}
@@ -117,7 +117,7 @@ const HeroMedia = ({
           quality={100}
         />
       ) : (
-        <div className="grid items-center justify-center">
+        <div className="grid items-center justify-center h-full">
           <Image
             src={thumbnailUrl}
             alt={alt}

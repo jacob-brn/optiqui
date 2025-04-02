@@ -46,7 +46,7 @@
       "type": "registry:component",
       "title": "Text Circle",
       "description": "A text animation with animated circle outline",
-      "registryDependencies": [
+      "dependencies": [
         "motion"
       ],
       "files": [
@@ -61,7 +61,7 @@
       "type": "registry:component",
       "title": "Text Underline",
       "description": "A text animation with animated underline",
-      "registryDependencies": [
+      "dependencies": [
         "motion"
       ],
       "files": [
@@ -76,7 +76,7 @@
       "type": "registry:component",
       "title": "Text Highlight",
       "description": "A text animation with marker-like highlighting",
-      "registryDependencies": [
+      "dependencies": [
         "motion"
       ],
       "files": [
@@ -179,7 +179,7 @@
       "type": "registry:component",
       "title": "Text Cubic",
       "description": "Text animation with animated letters looking like rubik's cube.",
-      "registryDependencies": [
+      "dependencies": [
         "motion"
       ],
       "files": [
@@ -198,6 +198,21 @@
       "files": [
         {
           "path": "registry/ui/BentoGrid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "macbook",
+      "type": "registry:component",
+      "title": "Macbook",
+      "description": "Fully responsive Macbook made react and tailwindcss",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/Macbook.tsx",
           "type": "registry:component"
         }
       ]
@@ -363,6 +378,21 @@
       "files": [
         {
           "path": "registry/example/pixel-card-example.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "macbook-example",
+      "type": "registry:example",
+      "title": "Macbook Example",
+      "description": "Fully responsive Macbook made react and tailwindcss",
+      "registryDependencies": [
+        "https://optiqui.com/r/macbook.json"
+      ],
+      "files": [
+        {
+          "path": "registry/example/macbook-example.tsx",
           "type": "registry:example"
         }
       ]

@@ -54,6 +54,7 @@ const components = {
   TabsTrigger,
   Button,
   Script,
+  Link,
   pre: Pre,
   Note,
   Stepper,

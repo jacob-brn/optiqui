@@ -162,4 +162,17 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "macbook",
+    type: "registry:component",
+    title: "Macbook",
+    description: "Fully responsive Macbook made react and tailwindcss",
+    dependencies: ["motion", "react-icons"],
+    files: [
+      {
+        path: "registry/ui/Macbook.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ];

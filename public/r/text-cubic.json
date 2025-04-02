@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Text Cubic",
   "description": "Text animation with animated letters looking like rubik's cube.",
-  "registryDependencies": [
+  "dependencies": [
     "motion"
   ],
   "files": [

@@ -12,6 +12,7 @@ import SlidingBadge from "@/registry/ui/SlidingBadge";
 import PixelCard from "@/registry/ui/PixelCard";
 import HeroMedia from "@/registry/ui/HeroMedia";
 import TextCubic from "@/registry/ui/TextCubic";
+import Macbook from "@/registry/ui/Macbook";
 
 const page_routes = ROUTES.filter(
   (route) => route.title.toLowerCase() === "components"
@@ -145,31 +146,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="hidden xl:flex flex-col w-full h-full px-8 gap-y-6">
-        <div className="w-full h-min flex flex-col gap-2 justify-end">
-          <div className="w-full h-min flex flex-row gap-x-2 justify-end">
-            <PixelCard
-              text="Cool and open-source animated components"
-              icon={<Heart className="w-8 h-8" />}
-              className="w-full h-24 rounded-xl border border-border"
-              canvasProps={{
-                gap: 0,
-                colors: "#D2042D, #FF0033, #C21807, #E30B5C, #FF4D4D, #B22222",
-              }}
-            />
-            <PixelCard
-              text="Follow me on X for updates and more cool stuff"
-              icon={<FaXTwitter className="w-8 h-8" />}
-              className="w-full h-24 rounded-xl border border-border"
-              canvasProps={{
-                gap: 0,
-                colors:
-                  "#FF6666, #FFA366, #FFFF99, #99FF99, #99CCFF, #9966CC, #C699FF",
-              }}
-            />
-          </div>
-        </div>
-        <div className="w-full h-full">
+      <div className="hidden xl:flex flex-col w-full h-full px-8 gap-y-6 pt-72">
+        <Macbook>
           <HeroMedia
             type="video"
             thumbnailUrl="/heromedia-thumbnail.jpg"
@@ -180,23 +158,7 @@ const HeroSection = () => {
             PopoverTitle="Optiq UI SaaS Template"
             PopoverDescription="Coming out soon!"
           />
-        </div>
-        <div className="w-full">
-          <div className="bg-gradient-to-b from-background to-neutral-200 dark:to-neutral-900 rounded-lg p-8 flex flex-col border border-border">
-            <div className="grid gap-y-1">
-              <h2 className="text-lg font-medium">WOW effect in few minutes</h2>
-              <p className="text-sm text-muted-foreground">
-                With Optiq UI, you can build stunning landing pages without
-                breaking a sweat.
-              </p>
-            </div>
-            <TextCubic
-              text="Hover over me to see magic"
-              animateOnHover
-              className="cursor-pointer text-4xl font-semibold text-foreground/70 mt-6"
-            />
-          </div>
-        </div>
+        </Macbook>
       </div>
     </MaxWidthWrapper>
   );

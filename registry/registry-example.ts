@@ -146,4 +146,17 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "macbook-example",
+    type: "registry:example",
+    title: "Macbook Example",
+    description: "Fully responsive Macbook made react and tailwindcss",
+    registryDependencies: ["https://optiqui.com/r/macbook.json"],
+    files: [
+      {
+        path: "registry/example/macbook-example.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];
