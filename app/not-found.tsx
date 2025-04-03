@@ -1,6 +1,7 @@
 // import { buttonVariants } from "@/components/ui/button";
 // import Link from "next/link";
 
+import AIButton from "@/registry/ui/AIButton";
 import HeroMedia from "@/registry/ui/HeroMedia";
 import Macbook from "@/registry/ui/Macbook";
 import Image from "next/image";
@@ -190,20 +191,23 @@ import Image from "next/image";
 
 export default function DemoPage() {
   return (
-    <div className="pt-24">
-      <Macbook>
-        <HeroMedia
-          type="video"
-          iframe={false}
-          className="h-full rounded-lg"
-          thumbnailUrl="/heromedia-thumbnail.jpg"
-          videoUrl="/optiq-ui-saas-template.mp4"
-          buttonTitle="See video"
-          buttonDescription="Just click play button"
-          PopoverTitle="Optiq UI SaaS Template"
-          PopoverDescription="Coming out soon!"
-        />
-      </Macbook>
+    // <div className="pt-24">
+    //   <Macbook>
+    //     <HeroMedia
+    //       type="video"
+    //       iframe={false}
+    //       className="h-full rounded-lg"
+    //       thumbnailUrl="/heromedia-thumbnail.jpg"
+    //       videoUrl="/optiq-ui-saas-template.mp4"
+    //       buttonTitle="See video"
+    //       buttonDescription="Just click play button"
+    //       PopoverTitle="Optiq UI SaaS Template"
+    //       PopoverDescription="Coming out soon!"
+    //     />
+    //   </Macbook>
+    // </div>
+    <div className="py-60 flex items-center justify-center">
+      <AIButton />
     </div>
   );
 }
