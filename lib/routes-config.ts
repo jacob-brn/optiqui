@@ -78,6 +78,11 @@ export const ROUTES: EachRoute[] = [
         href: "/macbook",
         badges: ["New"],
       },
+      {
+        title: "AI Button",
+        href: "/ai_button",
+        badges: ["New"],
+      },
     ],
   },
   // {

@@ -208,11 +208,27 @@
       "title": "Macbook",
       "description": "Fully responsive Macbook made react and tailwindcss",
       "dependencies": [
-        "motion"
+        "motion",
+        "react-icons"
       ],
       "files": [
         {
           "path": "registry/ui/Macbook.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "ai-button",
+      "type": "registry:component",
+      "title": "AI Button",
+      "description": "Animated Button perfect for AI related apps",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/AIButton.tsx",
           "type": "registry:component"
         }
       ]
@@ -393,6 +409,21 @@
       "files": [
         {
           "path": "registry/example/macbook-example.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "ai-button-example",
+      "type": "registry:example",
+      "title": "AI Button Example",
+      "description": "Animated Button perfect for AI related apps",
+      "registryDependencies": [
+        "https://optiqui.com/r/ai-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/example/ai-button-example.tsx",
           "type": "registry:example"
         }
       ]

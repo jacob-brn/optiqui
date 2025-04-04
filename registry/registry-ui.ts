@@ -175,4 +175,17 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "ai-button",
+    type: "registry:component",
+    title: "AI Button",
+    description: "Animated Button perfect for AI related apps",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "registry/ui/AIButton.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ];

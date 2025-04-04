@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-button-example",
+  "type": "registry:example",
+  "title": "AI Button Example",
+  "description": "Animated Button perfect for AI related apps",
+  "registryDependencies": [
+    "https://optiqui.com/r/ai-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/ai-button-example.tsx",
+      "content": "import AIButton from \"../ui/AIButton\";\r\n\r\nexport default function AIButtonExample() {\r\n  return (\r\n    <div className=\"py-60 flex items-center justify-center flex-col gap-y-6\">\r\n      <AIButton text=\"Generate\" className=\"min-w-[120px]\" />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

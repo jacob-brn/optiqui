@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/example/macbook-example.tsx",
-      "content": "import Macbook from \"../ui/Macbook\";\r\n\r\nexport default function MacbookExample() {\r\n  return (\r\n    <Macbook>\r\n      <h3>Macbook</h3>\r\n    </Macbook>\r\n  );\r\n}\r\n",
+      "content": "import Macbook from \"../ui/Macbook\";\r\n\r\nexport default function MacbookExample() {\r\n  return (\r\n    <div className=\"pt-36 md:pt-96 md:pb-24 overflow-x-hidden md:overflow-x-visible\">\r\n      <Macbook>\r\n        <h3 className=\"font-semibold text-3xl text-white dark:text-foreground max-w-xs mx-auto text-center\">\r\n          What are you going to use it for?\r\n        </h3>\r\n      </Macbook>\r\n    </div>\r\n  );\r\n}\r\n",
       "type": "registry:example"
     }
   ]

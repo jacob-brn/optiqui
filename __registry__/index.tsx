@@ -231,6 +231,23 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "ai-button": {
+    name: "ai-button",
+    description: "Animated Button perfect for AI related apps",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/ui/AIButton.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/AIButton.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
   "text-cubic-example": {
     name: "text-cubic-example",
     description: "Text animation with animated letters looking like rubik's cube.",
@@ -430,6 +447,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/macbook-example.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "ai-button-example": {
+    name: "ai-button-example",
+    description: "Animated Button perfect for AI related apps",
+    type: "registry:example",
+    registryDependencies: ["https://optiqui.com/r/ai-button.json"],
+    files: [{
+      path: "registry/example/ai-button-example.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/ai-button-example.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

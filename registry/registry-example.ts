@@ -159,4 +159,17 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "ai-button-example",
+    type: "registry:example",
+    title: "AI Button Example",
+    description: "Animated Button perfect for AI related apps",
+    registryDependencies: ["https://optiqui.com/r/ai-button.json"],
+    files: [
+      {
+        path: "registry/example/ai-button-example.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

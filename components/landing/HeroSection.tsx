@@ -35,12 +35,17 @@ const BadgesMessages: BadgeMessagesProps[] = [
         Follow me on <FaXTwitter className="ml-1 text-xs" />
       </>
     ),
-    link: "https://x.com/jacobdev0",
+    link: "https://x.com/jacob_brn",
   },
   {
     emoji: "✨",
     text: <>Star on Github</>,
-    link: "https://github.com/jacob01-dev/optiqui",
+    link: "https://github.com/jacob-brn/optiqui",
+  },
+  {
+    emoji: "🎉",
+    text: <>Introducing SaaS Template</>,
+    link: "https://www.pro.optiqui.com/templates/saas",
   },
 ];
 
