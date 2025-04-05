@@ -32,6 +32,7 @@ COPY --from=builder /app/node_modules /app/node_modules
 COPY --from=builder /app/package.json /app/package.json
 COPY --from=builder /app/public /app/public 
 COPY --from=builder /app/contents /app/contents
+COPY --from=builder /app/registry /app/registry
 
 EXPOSE 3000
 CMD ["npm", "start"]
