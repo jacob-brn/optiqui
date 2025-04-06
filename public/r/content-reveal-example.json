@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "content-reveal-example",
+  "type": "registry:example",
+  "title": "Content Reveal Example",
+  "description": "Animated component for revealing content. Perfect for before vs after.",
+  "registryDependencies": [
+    "https://optiqui.com/r/content-reveal.json"
+  ],
+  "files": [
+    {
+      "path": "registry/example/content-reveal-example.tsx",
+      "content": "import ContentReveal from \"../ui/ContentReveal\";\r\n\r\nexport default function ContentRevealExample() {\r\n  return (\r\n    <div className=\"py-24 flex items-center justify-center flex-col gap-y-6 not-prose scale-150\">\r\n      <ContentReveal\r\n        firstContent={\r\n          <div className=\"w-full h-64 bg-gray-200 flex items-center justify-center\">\r\n            <span className=\"text-gray-500\">Grayscale Image</span>\r\n          </div>\r\n        }\r\n        secondContent={\r\n          <div className=\"w-full h-64 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center\">\r\n            <span className=\"text-white font-bold\">Colorful Image</span>\r\n          </div>\r\n        }\r\n        lineColor=\"bg-yellow-500\"\r\n        duration={2}\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example"
+    }
+  ]
+}

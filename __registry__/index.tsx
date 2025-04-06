@@ -248,6 +248,23 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "content-reveal": {
+    name: "content-reveal",
+    description: "Animated component for revealing content. Perfect for before vs after.",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/ui/ContentReveal.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/ContentReveal.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
   "text-cubic-example": {
     name: "text-cubic-example",
     description: "Text animation with animated letters looking like rubik's cube.",
@@ -464,6 +481,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/ai-button-example.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "content-reveal-example": {
+    name: "content-reveal-example",
+    description: "Animated component for revealing content. Perfect for before vs after.",
+    type: "registry:example",
+    registryDependencies: ["https://optiqui.com/r/content-reveal.json"],
+    files: [{
+      path: "registry/example/content-reveal-example.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/content-reveal-example.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

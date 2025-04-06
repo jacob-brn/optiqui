@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "content-reveal",
+  "type": "registry:component",
+  "title": "Content Reveal",
+  "description": "Animated component for revealing content. Perfect for before vs after.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/ContentReveal.tsx",
+      "content": "import { motion } from \"motion/react\";\r\n\r\ninterface ContentRevealProps {\r\n  firstContent: React.ReactNode;\r\n  secondContent: React.ReactNode;\r\n  duration?: number;\r\n  delay?: number;\r\n  contentClassName?: string;\r\n  lineColor?: string;\r\n}\r\n\r\nconst ContentReveal = ({\r\n  firstContent,\r\n  secondContent,\r\n  duration = 1.5,\r\n  delay = 0.2,\r\n  contentClassName = \"\",\r\n  lineColor = \"bg-blue-500\",\r\n}: ContentRevealProps) => {\r\n  return (\r\n    <div className=\"flex flex-col items-center gap-8\">\r\n      <div className=\"relative overflow-hidden\">\r\n        <div className=\"relative\">\r\n          <motion.div\r\n            className=\"relative\"\r\n            initial={{ clipPath: \"inset(0 0% 0 0)\" }}\r\n            animate={{ clipPath: \"inset(0 0% 0 100%)\" }}\r\n            transition={{ duration, delay, ease: \"easeInOut\" }}\r\n          >\r\n            <div className={`opacity-50 ${contentClassName}`}>\r\n              {firstContent}\r\n            </div>\r\n          </motion.div>\r\n\r\n          <motion.div\r\n            className=\"absolute top-0 left-0 w-full\"\r\n            initial={{ clipPath: \"inset(0 100% 0 0)\" }}\r\n            animate={{ clipPath: \"inset(0 0% 0 0)\" }}\r\n            transition={{ duration, delay, ease: \"easeInOut\" }}\r\n          >\r\n            <div className={contentClassName}>{secondContent}</div>\r\n          </motion.div>\r\n\r\n          <motion.div\r\n            className={`absolute top-0 bottom-0 w-1 ${lineColor} z-10`}\r\n            initial={{ left: \"0%\" }}\r\n            animate={{ left: \"100%\" }}\r\n            transition={{ duration, delay, ease: \"easeInOut\" }}\r\n            style={{ height: \"100%\" }}\r\n          />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default ContentReveal;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

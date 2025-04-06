@@ -234,6 +234,21 @@
       ]
     },
     {
+      "name": "content-reveal",
+      "type": "registry:component",
+      "title": "Content Reveal",
+      "description": "Animated component for revealing content. Perfect for before vs after.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ContentReveal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "text-cubic-example",
       "type": "registry:example",
       "title": "Text Cubic Example",
@@ -424,6 +439,21 @@
       "files": [
         {
           "path": "registry/example/ai-button-example.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "content-reveal-example",
+      "type": "registry:example",
+      "title": "Content Reveal Example",
+      "description": "Animated component for revealing content. Perfect for before vs after.",
+      "registryDependencies": [
+        "https://optiqui.com/r/content-reveal.json"
+      ],
+      "files": [
+        {
+          "path": "registry/example/content-reveal-example.tsx",
           "type": "registry:example"
         }
       ]

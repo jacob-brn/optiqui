@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/example/ai-button-example.tsx",
-      "content": "import AIButton from \"../ui/AIButton\";\r\n\r\nexport default function AIButtonExample() {\r\n  return (\r\n    <div className=\"py-60 flex items-center justify-center flex-col gap-y-6\">\r\n      <AIButton text=\"Generate\" className=\"min-w-[120px]\" />\r\n    </div>\r\n  );\r\n}\r\n",
+      "content": "import AIButton from \"../ui/AIButton\";\r\n\r\nexport default function AIButtonExample() {\r\n  return (\r\n    <div className=\"py-24 flex items-center justify-center flex-col gap-y-6 not-prose scale-150\">\r\n      <AIButton\r\n        text=\"Generate\"\r\n        className=\"text-yellow-300 dark:text-yellow-600 min-w-[120px] text-base\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
       "type": "registry:example"
     }
   ]

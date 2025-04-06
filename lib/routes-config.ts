@@ -83,6 +83,11 @@ export const ROUTES: EachRoute[] = [
         href: "/ai_button",
         badges: ["New"],
       },
+      {
+        title: "Content Reveal",
+        href: "/content_reveal",
+        badges: ["New"],
+      },
     ],
   },
   // {

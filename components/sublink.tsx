@@ -71,13 +71,13 @@ export default function SubLink({
             }}
           />
         )}
-        <div className="relative z-10 flex items-center gap-x-1.5 w-full">
+        <div className="relative z-10 flex items-center gap-x-1.5 w-full justify-between">
           {titleOrLink}
           <div className="flex">
             {badges?.map((badge, index) => (
               <div
                 className={cn(
-                  "z-10 rounded-md bg-foreground text-background px-1.5 py-0.5 text-xs font-medium leading-none no-underline group-hover:no-underline mr-1.5",
+                  "z-10 rounded-[4px] bg-foreground text-background px-2 py-0.5 text-xs font-medium leading-none no-underline group-hover:no-underline mr-1.5",
                   badge.toLowerCase() === "pro" && "bg-primary text-white",
                   badge.toLowerCase() === "soon" && "bg-muted text-foreground"
                 )}

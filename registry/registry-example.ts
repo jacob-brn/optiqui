@@ -172,4 +172,18 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "content-reveal-example",
+    type: "registry:example",
+    title: "Content Reveal Example",
+    description:
+      "Animated component for revealing content. Perfect for before vs after.",
+    registryDependencies: ["https://optiqui.com/r/content-reveal.json"],
+    files: [
+      {
+        path: "registry/example/content-reveal-example.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

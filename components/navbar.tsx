@@ -22,6 +22,10 @@ export const NAVLINKS = [
     title: "Components",
     href: `/docs${page_routes[0].href}`,
   },
+  {
+    title: "Templates",
+    href: `https://www.pro.optiqui.com`,
+  },
 ];
 
 export function Navbar() {

@@ -188,4 +188,18 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "content-reveal",
+    type: "registry:component",
+    title: "Content Reveal",
+    description:
+      "Animated component for revealing content. Perfect for before vs after.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "registry/ui/ContentReveal.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ];
