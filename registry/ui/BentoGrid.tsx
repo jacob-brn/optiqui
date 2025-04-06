@@ -62,7 +62,7 @@ const BentoGridItem = ({
               alt={title}
               width={1920}
               height={1920}
-              quality={100}
+              quality={70}
               className="object-cover h-full transition-all duration-300 group-hover:scale-105 group-hover:blur-sm"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
